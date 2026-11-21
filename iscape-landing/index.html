@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>iScape · IT support from Mackay</title>
+<meta name="description" content="iScape runs managed IT, cyber security and custom software for Mackay and regional Queensland businesses, from North Mackay since 2005.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* brand, from iScape's own documents */
+  --teal: #17a2a2;
+  --teal-deep: #0d7377;
+  --slate: #2c3e50;
+  --bg: #f2f8f8;
+  --surface: #e2f0f0;
+  --ink: #1d2b38;
+  --muted: #4a5a68;
+  --accent: #0d7377;
+  --on-accent: #ffffff;
+  --field: #2c3e50;
+  --on-field: #eaf6f6;
+  --on-field-muted: #b9d3d6;
+  --warn: #b86a00;
+
+  /* five working sizes, plus the hero display and the footer name */
+  --step-small: 0.9375rem;
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  --step-mid: clamp(1.5rem, 0.9rem + 2.4vw, 3rem);
+  --step-head: clamp(2.75rem, 1.4rem + 5.2vw, 6rem);
+  --step-display: clamp(4rem, 0.5rem + 10.8vw, 12rem);
+
+  --margin: clamp(16px, 2.4vw, 32px);
+  --gap-section: clamp(120px, 14vw, 220px);
+  --radius: 14px;
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: var(--step-body); line-height: 1.5; font-stretch: 100%;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+p { margin: 0; }
+h1, h2, h3 { margin: 0; font-weight: 800; }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
+::selection { background: var(--teal); color: #fff; }
+
+.display {
+  font-stretch: 62%; font-weight: 800; text-transform: uppercase;
+  letter-spacing: -0.01em; line-height: 0.88;
+}
+.wrap { padding-inline: var(--margin); }
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(12px, 2vw, 32px); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: .6em;
+  font: inherit; font-weight: 500; font-size: var(--step-body); text-decoration: none;
+  padding: .85em 1.5em; border-radius: 999px; border: 0; cursor: pointer;
+  background: var(--accent); color: var(--on-accent);
+  transition: transform .25s var(--spring), background-color .2s ease;
+}
+.btn:hover { transform: translateY(-2px); background: #0a5f62; }
+.btn:active { transform: translateY(1px) scale(.98); }
+.btn .arrow { transition: transform .25s var(--spring); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.link {
+  text-decoration: underline; text-underline-offset: .22em; text-decoration-thickness: 2px;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  transition: text-decoration-color .2s ease, color .2s ease;
+}
+.link:hover { text-decoration-color: currentColor; }
+
+/* ---------- top bar ---------- */
+.top {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-block: 22px; font-size: var(--step-small);
+}
+.wordmark { font-weight: 800; font-size: var(--step-body); letter-spacing: -0.01em; text-decoration: none; }
+.top nav { display: flex; gap: clamp(16px, 2.4vw, 32px); }
+.top nav a { text-decoration: none; font-weight: 500; }
+.top nav a:hover { text-decoration: underline; text-underline-offset: .25em; }
+
+/* ---------- hero ---------- */
+.hero { min-height: 100svh; display: flex; flex-direction: column; }
+.hero-body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-block: clamp(32px, 6vh, 80px) clamp(40px, 7vh, 96px); }
+.hero h1 { font-size: var(--step-display); }
+.hero-line { display: flex; align-items: flex-end; gap: .14em; }
+.hero-line + .hero-line { margin-top: .06em; }
+.hero-line .w { white-space: nowrap; }
+.hero-text { position: relative; }
+.support {
+  font-size: var(--step-lead); line-height: 1.32; max-width: 32ch; color: var(--ink);
+  margin-top: 36px;
+}
+@media (min-width: 1081px) {
+  .support { position: absolute; right: 0; bottom: .35rem; margin: 0; max-width: 25ch; }
+}
+
+/* the slot: a live fragment of the support desk, one cap-height tall */
+.slot {
+  flex: 1; height: calc(var(--step-display) * .72); min-width: 0; margin-bottom: calc(var(--step-display) * .07);
+  border-radius: var(--radius); background: var(--field); color: var(--on-field);
+  font-size: 1rem; line-height: 1.2; font-stretch: 100%; text-transform: none; letter-spacing: 0; font-weight: 400;
+  display: grid; grid-template-columns: 1fr auto; align-items: stretch; overflow: hidden; position: relative;
+  clip-path: inset(0 0 0 0 round var(--radius));
+}
+.slot-meta { padding: clamp(10px, 1.4vw, 22px); display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
+.slot-meta .now { display: flex; align-items: center; gap: .55em; font-size: var(--step-small); font-weight: 500; }
+.dot { width: .65em; height: .65em; border-radius: 50%; background: var(--teal); flex: none; }
+.dot.closed { background: #f0a43a; }
+.dot.live { animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.7); opacity: .55; } }
+.slot-meta .case { font-size: var(--step-body); color: var(--on-field-muted); }
+.slot-meta .case strong { color: var(--on-field); font-weight: 600; }
+.slot-target {
+  background: var(--teal-deep); padding: clamp(10px, 1.4vw, 22px) clamp(14px, 2vw, 32px);
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right;
+}
+.slot-target .big {
+  font-stretch: 62%; font-weight: 800; text-transform: uppercase; line-height: .9;
+  font-size: var(--step-mid); letter-spacing: -0.01em; white-space: nowrap;
+}
+.slot .swap { transition: opacity .25s ease, transform .35s var(--ease-out); }
+.slot.changing .swap { opacity: 0; transform: translateY(8px); }
+
+.hero-actions { margin-top: clamp(36px, 6vh, 72px); display: flex; flex-wrap: wrap; align-items: center; gap: 20px 40px; }
+.picker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.picker-q { font-weight: 500; margin-right: 6px; }
+.picker button {
+  font: inherit; font-size: var(--step-small); font-weight: 500; cursor: pointer;
+  padding: .6em 1.05em; border-radius: 999px; border: 0;
+  background: var(--surface); color: var(--ink);
+  transition: background-color .2s ease, color .2s ease, transform .25s var(--spring);
+}
+.picker button:hover { transform: translateY(-2px); background: #d1e8e8; }
+.picker button:active { transform: scale(.96); }
+.picker button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.no-js .picker { display: none; }
+
+/* ---------- intro (pinned statement, built work passes) ---------- */
+.intro { margin-top: clamp(24px, 4vw, 64px); }
+.intro .grid { align-items: start; }
+.intro-pin { grid-column: 1 / span 6; position: sticky; top: 18vh; padding-bottom: 8vh; }
+.intro-pin h2 { font-size: var(--step-head); margin-bottom: .45em; }
+.intro-pin p { font-size: clamp(1.5rem, 1rem + 1.4vw, 2.25rem); line-height: 1.18; max-width: 30ch; }
+.intro-pin p + p { margin-top: .9em; font-size: var(--step-body); line-height: 1.5; max-width: 44ch; }
+.intro-work { grid-column: 8 / span 5; display: flex; flex-direction: column; gap: 12vh; padding-block: 4vh 6vh; }
+.intro-work figure { margin: 0; }
+.intro-work figure:nth-child(1) { width: 100%; }
+.intro-work figure:nth-child(2) { width: 82%; margin-left: auto; }
+.intro-work figure:nth-child(3) { width: 92%; }
+figcaption { margin-top: 12px; font-size: var(--step-small); color: var(--muted); }
+
+/* ---------- interface fragments (data-ui keep their own borders) ---------- */
+.ui {
+  border-radius: var(--radius); overflow: hidden; background: #fff; color: #22313f;
+  font-size: 14px; line-height: 1.35; border: 1px solid #d5e4e6; /* taste-skill-ignore: data-ui fragment */
+}
+.ui-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; background: #f5fafa; border-bottom: 1px solid #dfeced; font-weight: 600; font-size: 13px; } /* taste-skill-ignore: data-ui fragment */
+.ui-bar span:last-child { font-weight: 400; color: #5d6d7a; }
+.ui-body { padding: 14px; }
+.ui table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+.ui th { text-align: left; font-weight: 600; color: #5d6d7a; padding: 6px 8px; border-bottom: 1px solid #e3eeef; } /* taste-skill-ignore: data-ui fragment */
+.ui td { padding: 7px 8px; border-bottom: 1px solid #eef4f4; } /* taste-skill-ignore: data-ui fragment */
+.ui td.num, .ui th.num { text-align: right; }
+.tag { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.tag.ok { background: #dff3f3; color: #0b6a6e; }
+.tag.warn { background: #fff1d9; color: #8a5200; }
+.tag.crit { background: #fde3df; color: #a2271a; }
+.ui .row { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid #eef4f4; } /* taste-skill-ignore: data-ui fragment */
+.ui .row:last-child { border-bottom: 0; }
+.ui .k { color: #5d6d7a; }
+.ui-dark { background: #1f2d3a; color: #e6f2f2; border-color: #1f2d3a; }
+.ui-dark .ui-bar { background: #26384a; border-color: #33495e; color: #e6f2f2; }
+.ui-dark th { color: #a9c3c8; border-color: #33495e; }
+.ui-dark td { border-color: #2b3d4f; }
+.ui-dark .ui-bar span:last-child { color: #a9c3c8; }
+pre.code { margin: 0; padding: 14px 16px; font: 13px/1.55 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; white-space: pre; overflow: hidden; }
+pre.code .c { color: #7fa3ab; } pre.code .k2 { color: #5fd0d0; } pre.code .s { color: #f2c27b; }
+.map { position: relative; background: #e9f3f2; height: 230px; overflow: hidden; }
+.map svg { width: 100%; height: 100%; }
+.bars { display: grid; grid-template-columns: repeat(14, 1fr); align-items: end; gap: 5px; height: 120px; padding-top: 8px; }
+.bars i { display: block; background: var(--teal); border-radius: 3px 3px 0 0; }
+.bars i.hi { background: var(--teal-deep); }
+.spark { display: flex; align-items: end; gap: 3px; height: 34px; }
+.spark i { flex: 1; background: #9fd6d6; border-radius: 2px; }
+
+/* ---------- features: rows on an axis ---------- */
+.features { margin-top: var(--gap-section); }
+.features-head { min-height: 42svh; display: flex; align-items: center; }
+.features-head h2, .feature { grid-column: 5 / span 8; }
+.features-head h2 { font-size: var(--step-head); }
+.feature { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: clamp(24px, 4vw, 64px); align-items: start; }
+.feature + .feature { margin-top: clamp(80px, 9vw, 120px); }
+.feature h3 { font-size: var(--step-mid); font-stretch: 62%; text-transform: uppercase; line-height: .95; letter-spacing: -0.005em; margin-bottom: .4em; }
+.feature p { max-width: 38ch; }
+.feature p + p { margin-top: .8em; }
+.feature .with { color: var(--muted); font-size: var(--step-small); margin-top: 1em; max-width: 44ch; }
+.feature figure { margin: 0; }
+.feature .fig-a { width: clamp(280px, 26vw, 400px); }
+.feature .fig-b { width: clamp(300px, 30vw, 440px); }
+.feature .fig-c { width: clamp(220px, 19vw, 280px); }
+
+/* ---------- proof: the Essential Eight as one sentence ---------- */
+.proof { margin-top: var(--gap-section); }
+.proof .lede { font-size: var(--step-head); }
+.e8 {
+  margin-top: .5em; font-size: clamp(1.5rem, 1rem + 1.4vw, 2.25rem); line-height: 1.12;
+  font-stretch: 62%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em;
+}
+.e8 span { color: #6a858e; transition: color .4s ease; cursor: default; }
+.e8 span.lit { color: var(--ink); }
+.e8-caption { margin-top: 36px; display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: clamp(12px, 2vw, 32px); }
+.e8-caption p { grid-column: 1 / span 6; font-size: var(--step-lead); line-height: 1.3; min-height: 2.6em; }
+.e8-caption p strong { font-weight: 600; }
+.e8-caption .fine { grid-column: 8 / span 5; font-size: var(--step-body); color: var(--ink); line-height: 1.5; min-height: 0; }
+
+/* ---------- list: response times ---------- */
+.times { margin-top: var(--gap-section); }
+.times h2 { font-size: var(--step-head); text-indent: 3vw; grid-column: 1 / -1; }
+.times .grid { row-gap: 0; }
+.times-fig { grid-column: 1 / span 5; align-self: end; margin: 96px 0 0; }
+.times-table { grid-column: 7 / span 6; margin-top: 96px; }
+.times-table table { width: 100%; border-collapse: collapse; font-size: var(--step-body); }
+.times-table caption { text-align: left; font-weight: 600; padding-bottom: 14px; }
+.times-table th, .times-table td { padding: 13px 0; text-align: left; vertical-align: top; font-weight: 400; }
+.times-table th { color: var(--muted); width: 26%; padding-right: 16px; }
+.times-table td.v { text-align: right; font-weight: 600; white-space: nowrap; padding-left: 16px; }
+.times-table tr.gap > * { padding-top: 44px; }
+.times-table tr > * { transition: background-color .3s ease; }
+.times-table tr.on > * { background: var(--surface); }
+.times-table th { padding-left: 14px; }
+.times-table td.v { padding-right: 14px; }
+.times-table caption { padding-left: 14px; }
+.times-table td.v a { white-space: normal; overflow-wrap: anywhere; }
+.times-table td a { font-weight: 600; }
+
+/* ---------- faq ---------- */
+.faq { margin-top: var(--gap-section); }
+.faq h2 { font-size: var(--step-head); }
+.faq-list { grid-column: 5 / span 8; margin-top: 80px; }
+.faq details { padding: 18px 24px; margin-inline: -24px; border-radius: var(--radius); transition: background-color .25s ease; }
+.faq details + details { margin-top: 12px; }
+.faq details[open] { background: var(--surface); }
+.faq summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  font-size: var(--step-lead); line-height: 1.25;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.chev { width: 14px; height: 14px; flex: none; position: relative; transition: transform .3s var(--spring); }
+.chev::before, .chev::after { content: ""; position: absolute; top: 6px; width: 9px; height: 2px; background: currentColor; border-radius: 2px; }
+.chev::before { left: 0; transform: rotate(45deg); }
+.chev::after { right: 0; transform: rotate(-45deg); }
+.faq details[open] .chev { transform: rotate(180deg); }
+.faq details p { max-width: 52ch; margin-top: 14px; }
+
+/* ---------- contact ---------- */
+.contact { margin-top: var(--gap-section); padding-bottom: 120px; }
+.contact .grid { align-items: start; }
+.contact .say { grid-column: 1 / span 5; font-size: clamp(1.5rem, 1rem + 1.4vw, 2.25rem); line-height: 1.15; }
+.contact-desk { grid-column: 7 / span 2; }
+.contact-desk .ui { width: 100%; aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 16px; }
+.contact-desk .ui .big { font-stretch: 62%; font-weight: 800; font-size: var(--step-lead); line-height: .9; text-transform: uppercase; }
+.contact-links { grid-column: 10 / span 3; }
+.contact-links h2 { font-size: var(--step-body); font-weight: 600; font-stretch: 100%; margin-bottom: 20px; }
+.contact-links a { display: block; font-size: var(--step-body); width: fit-content; }
+.contact-links a + a { margin-top: 10px; }
+.contact-links p { margin-top: 18px; font-size: var(--step-small); color: var(--muted); }
+
+/* ---------- footer ---------- */
+.foot { background: var(--field); color: var(--on-field); min-height: 100svh; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+.foot-top { padding-top: clamp(64px, 10vh, 120px); }
+.foot-top .grid { align-items: start; }
+.foot-invite { grid-column: 1 / span 7; }
+.foot-invite h2 { font-size: var(--step-head); margin-bottom: 36px; }
+.foot .btn { background: var(--on-field); color: var(--field); }
+.foot .btn:hover { background: #ffffff; }
+.foot-links { grid-column: 10 / span 3; display: flex; flex-direction: column; gap: 10px; font-size: var(--step-body); }
+.foot-links a { width: fit-content; }
+.foot-links span { color: var(--on-field-muted); font-size: var(--step-small); }
+.foot-legal { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: var(--step-small); color: var(--on-field-muted); padding-bottom: 14px; position: relative; z-index: 1; }
+.foot-name {
+  font-stretch: 62%; font-weight: 800; line-height: .8;
+  font-size: 40vw; letter-spacing: -0.02em; white-space: nowrap; color: #3b5268;
+  margin-bottom: -0.22em; user-select: none; width: fit-content;
+}
+.foot-name-wrap { padding-inline: var(--margin); }
+
+/* ---------- motion: entrances ---------- */
+.js .rise { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease-out), transform .8s var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
+.js .rise.in { opacity: 1; transform: none; }
+.js .shutter { clip-path: inset(0 100% 0 0 round var(--radius)); }
+.js .shutter.open { clip-path: inset(0 0 0 0 round var(--radius)); transition: clip-path 1.1s var(--ease-out); }
+.js .shutter > * { transform: scale(1.12); }
+.js .shutter.open > * { transform: none; transition: transform 1.3s var(--ease-out); }
+.drift { animation: drift 14s ease-in-out infinite alternate; }
+@keyframes drift { from { transform: translate(0,0); } to { transform: translate(-3%, 2%); } }
+
+/* ---------- tablet ---------- */
+@media (max-width: 1080px) {
+  .hero h1 { --step-display: 17.4vw; font-size: var(--step-display); }
+  .hero-line { flex-wrap: wrap; }
+  .slot { flex-basis: 100%; height: auto; aspect-ratio: 3.4 / 1; margin: .08em 0 .1em; }
+  .faq details { margin-inline: -16px; padding-inline: 16px; }
+  .intro-pin { grid-column: 1 / span 7; }
+  .intro-work { grid-column: 8 / span 5; }
+  .features-head h2, .feature { grid-column: 3 / span 10; }
+  .faq-list { grid-column: 3 / span 10; }
+  .contact .say { grid-column: 1 / -1; margin-bottom: 48px; }
+  .times-table { grid-column: 1 / -1; margin-top: 64px; order: 1; }
+  .times-fig { grid-column: 1 / span 8; order: 2; margin-top: 64px; }
+  .contact-desk { grid-column: 1 / span 3; }
+  .contact-links { grid-column: 5 / span 8; }
+  .foot { min-height: 0; }
+  .foot-legal { margin-top: clamp(96px, 14vw, 160px); }
+  .foot-invite { grid-column: 1 / span 7; }
+  .foot-links { grid-column: 8 / span 5; }
+}
+
+/* ---------- phone ---------- */
+@media (max-width: 720px) {
+  .top nav a.hide-sm { display: none; }
+  .e8 { font-size: 1.5rem; }
+  .support { margin-top: 24px; font-size: 1.125rem; }
+  .slot { aspect-ratio: 2 / 1; grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
+  .slot-target { align-items: flex-start; text-align: left; }
+  .hero-actions { margin-top: 32px; }
+  .intro-pin, .intro-work { grid-column: 1 / -1; }
+  .intro-pin { position: static; padding-bottom: 0; }
+  .intro-work { gap: 56px; padding-top: 48px; }
+  .intro-work figure:nth-child(n) { width: 100%; margin: 0; }
+  .intro-work figure:nth-child(2) { width: 86%; margin-left: auto; }
+  .features-head { min-height: 0; padding-bottom: 48px; }
+  .features-head h2, .feature { grid-column: 1 / -1; }
+  .feature { grid-template-columns: 1fr; }
+  .feature + .feature { margin-top: 64px; }
+  .feature figure { margin-top: 24px; }
+  .feature .fig-a { width: 100%; }
+  .feature .fig-b { width: 100%; }
+  .feature .fig-c { width: 72%; margin-left: auto; }
+  .e8-caption p, .e8-caption .fine { grid-column: 1 / -1; }
+  .e8-caption .fine { margin-top: 20px; }
+  .times h2 { text-indent: 0; }
+  .times-table, .times-fig { grid-column: 1 / -1; }
+  .times-table { margin-top: 48px; order: 1; }
+  .times-fig { order: 2; margin-top: 48px; }
+  .times-table th { width: auto; display: block; padding: 18px 0 2px; }
+  .times-table tr { display: grid; grid-template-columns: 1fr auto; }
+  .times-table tr th { grid-column: 1 / -1; }
+  .times-table td { padding: 2px 0 8px; }
+  .times-table tr.gap > * { padding-top: 36px; }
+  .times-table tr.gap > td { padding-top: 2px; }
+  .faq-list { grid-column: 1 / -1; margin-top: 48px; }
+  .faq details { margin-inline: calc(var(--margin) * -1); padding-inline: var(--margin); border-radius: 0; }
+  .contact .say { grid-column: 1 / -1; font-size: 1.5rem; margin-bottom: 32px; }
+  .contact-desk { grid-column: 1 / span 5; }
+  .contact-links { grid-column: 6 / span 7; }
+  .foot-legal { margin-top: 96px; }
+  .foot-invite, .foot-links { grid-column: 1 / -1; }
+  .foot-links { margin-top: 40px; flex-direction: row; flex-wrap: wrap; gap: 12px 20px; }
+  .foot .btn { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .rise, .js .rise.in { opacity: 1; transform: none; transition: none; }
+  .js .shutter, .js .shutter.open { clip-path: none; transition: none; }
+  .js .shutter > *, .js .shutter.open > * { transform: none; transition: none; }
+  .drift, .dot.live { animation: none; }
+  .e8 span { transition: none; }
+  .btn, .picker button, .chev { transition: none; }
+}
+</style>
+</head>
+<body class="no-js">
+<script>document.body.classList.remove('no-js'); document.body.classList.add('js');</script>
+
+<header class="hero wrap" id="top">
+  <div class="top">
+    <a class="wordmark" href="#top">iScape</a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a class="hide-sm" href="#response">Response times</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <div class="hero-body">
+    <div class="hero-text">
+    <h1 class="display" aria-label="IT support from Mackay">
+      <span class="hero-line">
+        <span class="w rise" style="--i:0">IT support</span>
+        <span class="slot shutter" id="slot" data-ui role="img" aria-label="iScape support desk: response target for the issue you pick, and whether the North Mackay desk is open right now">
+          <span class="slot-meta swap">
+            <span class="now"><span class="dot live" id="slot-dot"></span><span id="slot-now">Desk hours Mon–Thu 8–5, Fri 8–3</span></span>
+            <span class="case" id="slot-case"><strong>A server is down?</strong> We respond</span>
+          </span>
+          <span class="slot-target swap">
+            <span class="big" id="slot-big">Within 1 hr</span>
+          </span>
+        </span>
+      </span>
+      <span class="hero-line">
+        <span class="w rise" style="--i:1">from Mackay</span>
+      </span>
+    </h1>
+    <p class="support rise" style="--i:2">Managed IT, cyber security and custom software for regional Queensland, since&nbsp;2005.</p>
+    </div>
+
+    <div class="hero-actions rise" style="--i:3">
+      <div class="picker" role="group" aria-label="What's broken?">
+        <span class="picker-q">What's broken?</span>
+        <button type="button" aria-pressed="true" data-sev="1">A server is down</button>
+        <button type="button" aria-pressed="false" data-sev="2">A team can't work</button>
+        <button type="button" aria-pressed="false" data-sev="3">One PC or printer</button>
+        <button type="button" aria-pressed="false" data-sev="4">Just a question</button>
+      </div>
+      <a class="btn" href="mailto:enquiry@iscape.com.au?subject=Managed%20IT%20quote&amp;body=Hi%20iScape%2C%0A%0AWe%27d%20like%20a%20quote%20for%20managed%20IT.%0A%0ABusiness%20name%3A%0ANumber%20of%20staff%3A%0ANumber%20of%20servers%3A%0ABest%20time%20to%20call%3A%0A">Get a quote <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="intro wrap" aria-labelledby="intro-h">
+    <div class="grid">
+      <div class="intro-pin">
+        <h2 id="intro-h" class="display rise">Since 2005</h2>
+        <p class="rise" style="--i:1">We began writing software for Mackay's mining and sugar industries. Now we run the IT too.</p>
+        <p class="rise" style="--i:2">Two directors founded iScape to build business software. The same team now designs, installs and looks after networks, servers and Microsoft 365 for businesses from a single server to several sites, with staff at our North Mackay head office and in Brisbane.</p>
+      </div>
+
+      <div class="intro-work">
+        <figure class="rise">
+          <div class="ui" data-ui>
+            <div class="ui-bar"><span>Fleet tracking · GIS view</span><span>Live · 18 units</span></div>
+            <div class="map">
+              <svg viewBox="0 0 480 230" aria-hidden="true">
+                <rect width="480" height="230" fill="#e4f1ef"/>
+                <path d="M0 160 C60 150 90 120 150 128 S260 170 320 140 S420 90 480 96 L480 230 L0 230Z" fill="#cfe7e3"/>
+                <path d="M0 60 L480 52 M0 112 L480 120 M90 0 L120 230 M250 0 L232 230 M380 0 L402 230" stroke="#c4dcdb" stroke-width="3" fill="none"/>
+                <path d="M30 196 C110 170 170 120 236 104 S360 70 452 40" stroke="#17a2a2" stroke-width="4" fill="none" stroke-dasharray="2 9" stroke-linecap="round"/>
+                <g fill="#0d7377"><circle cx="72" cy="182" r="6"/><circle cx="236" cy="104" r="6"/><circle cx="300" cy="86" r="6"/><circle cx="414" cy="52" r="6"/></g>
+                <g fill="#b86a00"><circle cx="168" cy="128" r="7"/></g>
+                <g font-family="Archivo, sans-serif" font-size="12" fill="#22313f">
+                  <text x="160" y="150">Unit 07 · idle 14 min</text>
+                  <text x="312" y="108">Unit 12 · 42 km/h</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <figcaption>Telemetry and GIS: tracking units in the field over the mobile network. Illustrative screen.</figcaption>
+        </figure>
+
+        <figure class="rise">
+          <div class="ui" data-ui>
+            <div class="ui-bar"><span>Weekly production report</span><span>Reporting Services</span></div>
+            <div class="ui-body">
+              <div class="bars" aria-hidden="true">
+                <i style="height:38%"></i><i style="height:52%"></i><i style="height:61%"></i><i style="height:58%"></i><i style="height:70%"></i><i style="height:76%"></i><i class="hi" style="height:92%"></i><i style="height:84%"></i><i style="height:80%"></i><i style="height:73%"></i><i style="height:66%"></i><i style="height:57%"></i><i style="height:44%"></i><i style="height:30%"></i>
+              </div>
+              <table>
+                <thead><tr><th>Week</th><th class="num">Tonnes</th><th class="num">vs plan</th></tr></thead>
+                <tbody>
+                  <tr><td>Week 7</td><td class="num">41,280</td><td class="num"><span class="tag ok">+6.1%</span></td></tr>
+                  <tr><td>Week 8</td><td class="num">37,640</td><td class="num"><span class="tag warn">−3.2%</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <figcaption>Business intelligence: reports built on SQL Server. Illustrative figures.</figcaption>
+        </figure>
+
+        <figure class="rise">
+          <div class="ui ui-dark" data-ui>
+            <div class="ui-bar"><span>ConsignmentService.cs</span><span>C# · .NET</span></div>
+<pre class="code"><span class="c">// Raise an alert when a unit arrives on site</span>
+<span class="k2">public async</span> Task OnPositionAsync(UnitPosition p)
+{
+    <span class="k2">var</span> site = <span class="k2">await</span> _sites.NearestAsync(p.Location);
+    <span class="k2">if</span> (site.Contains(p.Location))
+        <span class="k2">await</span> _alerts.SendAsync(p.UnitId, <span class="s">"Arrived"</span>, site);
+}</pre>
+          </div>
+          <figcaption>Custom software in C#, .NET and SQL Server. Illustrative code.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="features wrap" id="services" aria-labelledby="services-h">
+    <div class="grid features-head">
+      <h2 id="services-h" class="display rise">What we look after</h2>
+    </div>
+
+    <div class="grid">
+      <article class="feature">
+        <div>
+          <h3 class="rise">The support desk</h3>
+          <p class="rise" style="--i:1">Email support@iscape.com.au and a ticket opens itself. Call 1800&nbsp;775&nbsp;800 when it's urgent. Our engineers fix it remotely or come to you.</p>
+          <p class="with rise" style="--i:2">Every ticket is tracked in Halo PSA and every system is documented in Hudu, so the next engineer already knows your setup.</p>
+        </div>
+        <figure class="fig-a rise" style="--i:2">
+          <div class="ui" data-ui>
+            <div class="ui-bar"><span>Ticket #48213</span><span>Opened 9:02 am</span></div>
+            <div class="ui-body">
+              <div class="row"><span class="k">Subject</span><span>Can't reach the file server</span></div>
+              <div class="row"><span class="k">Severity</span><span class="tag warn">Level 2 · a team can't work</span></div>
+              <div class="row"><span class="k">Target</span><span>Response within 4 hours</span></div>
+              <div class="row"><span class="k">Engineer</span><span>Assigned 9:14 am</span></div>
+              <div class="row"><span class="k">Status</span><span class="tag ok">Resolved 10:05 am</span></div>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div>
+          <h3 class="rise">Cyber security</h3>
+          <p class="rise" style="--i:1">Huntress managed detection and response, watched 24/7 by an Australian security operations centre. When something trips, we coordinate containment and help clean up.</p>
+          <p class="with rise" style="--i:2">Plus CyberAware phishing and safe-computing training for your staff, and a monthly review of your Microsoft 365 security settings.</p>
+        </div>
+        <figure class="fig-b rise" style="--i:2">
+          <div class="ui ui-dark" data-ui>
+            <div class="ui-bar"><span>Security alerts</span><span>Last 7 days</span></div>
+            <div class="ui-body">
+              <table>
+                <thead><tr><th>Detection</th><th>Device</th><th class="num">Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Suspicious PowerShell</td><td>RECEPTION-02</td><td class="num"><span class="tag ok">Contained</span></td></tr>
+                  <tr><td>Phishing link clicked</td><td>Outlook · J. Smith</td><td class="num"><span class="tag ok">Remediated</span></td></tr>
+                  <tr><td>New admin sign-in</td><td>M365 tenant</td><td class="num"><span class="tag warn">Reviewing</span></td></tr>
+                  <tr><td>Persistence check</td><td>SERVER-01</td><td class="num"><span class="tag ok">Clear</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div>
+          <h3 class="rise">Backup you've seen restore</h3>
+          <p class="rise" style="--i:1">Image-level Hornetsecurity backups of your servers, copied offsite to Wasabi storage in Australian data centres, encrypted in transit and at rest.</p>
+          <p class="with rise" style="--i:2">We restore a sample every month and run integrity checks every quarter, so the first real restore isn't the first test.</p>
+        </div>
+        <figure class="fig-c rise" style="--i:2">
+          <div class="ui" data-ui>
+            <div class="ui-bar"><span>Monthly test restore</span><span>Nov</span></div>
+            <div class="ui-body">
+              <div class="row"><span class="k">Server</span><span>SERVER-01</span></div>
+              <div class="row"><span class="k">File</span><span>Accounts.xlsx</span></div>
+              <div class="row"><span class="k">From</span><span>Offsite, Australia</span></div>
+              <div class="row"><span class="k">Result</span><span class="tag ok">Opened OK</span></div>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div>
+          <h3 class="rise">Monitoring and patching</h3>
+          <p class="rise" style="--i:1">NinjaOne watches your servers around the clock: availability, disks, memory, event logs, RAID health and backup jobs. Problems raise a ticket before your staff notice.</p>
+          <p class="with rise" style="--i:2">Windows Server, Office and third-party apps like Java and Adobe are patched for you, with annual firmware updates on HPE servers.</p>
+        </div>
+        <figure class="fig-a rise" style="--i:2">
+          <div class="ui" data-ui>
+            <div class="ui-bar"><span>Server health</span><span>3 servers</span></div>
+            <div class="ui-body">
+              <div class="row"><span>SERVER-01</span><span class="spark" style="width:110px" aria-hidden="true"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:62%"></i><i style="height:58%"></i><i style="height:44%"></i><i style="height:50%"></i><i style="height:46%"></i></span><span class="tag ok">Healthy</span></div>
+              <div class="row"><span>SERVER-02</span><span class="spark" style="width:110px" aria-hidden="true"><i style="height:30%"></i><i style="height:34%"></i><i style="height:38%"></i><i style="height:36%"></i><i style="height:40%"></i><i style="height:35%"></i><i style="height:33%"></i><i style="height:37%"></i></span><span class="tag ok">Healthy</span></div>
+              <div class="row"><span>NAS-01</span><span class="spark" style="width:110px" aria-hidden="true"><i style="height:70%"></i><i style="height:74%"></i><i style="height:78%"></i><i style="height:81%"></i><i style="height:84%"></i><i style="height:86%"></i><i style="height:88%"></i><i style="height:91%"></i></span><span class="tag warn">Disk 91%</span></div>
+              <div class="row"><span class="k">Patches this month</span><span>42 installed · 0 failed</span></div>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div>
+          <h3 class="rise">Microsoft 365 and domains</h3>
+          <p class="rise" style="--i:1">Business Premium set up properly: multi-factor sign-in, conditional access, Intune device management and data loss protection, plus new starters and leavers handled for you.</p>
+          <p class="with rise" style="--i:2">Your domain names renewed through Dreamscape and your DNS run on Cloudflare with DNSSEC, with every change approved by you first.</p>
+        </div>
+        <figure class="fig-b rise" style="--i:2">
+          <div class="ui" data-ui>
+            <div class="ui-bar"><span>Monthly Microsoft 365 security review</span><span>12 users</span></div>
+            <div class="ui-body">
+              <div class="row"><span>Multi-factor sign-in, all users</span><span class="tag ok">12 of 12</span></div>
+              <div class="row"><span>Legacy sign-in blocked</span><span class="tag ok">Yes</span></div>
+              <div class="row"><span>Global admins</span><span class="tag ok">2, reviewed</span></div>
+              <div class="row"><span>Devices compliant in Intune</span><span class="tag warn">14 of 15</span></div>
+              <div class="row"><span class="k">Recommendations</span><span>1 laptop needs updates</span></div>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div>
+          <h3 class="rise">Software we write</h3>
+          <p class="rise" style="--i:1">Where we began. Custom applications in C#, .NET and SQL Server, reporting and business intelligence, telemetry and GIS mapping, and the Excel and Access tools your team already relies on.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="proof wrap" aria-labelledby="e8-h">
+    <h2 id="e8-h" class="lede display rise">The Essential Eight, covered:</h2>
+    <p class="e8 rise" style="--i:1" id="e8">
+      <span data-svc="Covered by our server monitoring and endpoint protection.">application control</span>,
+      <span data-svc="Covered by managed patching through NinjaOne: Office, Java, Adobe and more.">patching applications</span>,
+      <span data-svc="Covered by Microsoft 365 Business Premium policy settings.">Office macro settings</span>,
+      <span data-svc="Covered by our cyber security services and Microsoft 365 hardening.">user application hardening</span>,
+      <span data-svc="Covered by quarterly admin-privilege reviews and the monthly Microsoft 365 security review.">restricting admin privileges</span>,
+      <span data-svc="Covered by managed Windows and Windows Server patching.">patching operating systems</span>,
+      <span data-svc="Covered by Microsoft 365 conditional access, plus MFA on DNS and domain accounts.">multi-factor authentication</span> and
+      <span data-svc="Covered by Hornetsecurity backups, offsite in Australia, test-restored every month.">regular backups</span>.
+    </p>
+    <div class="e8-caption">
+      <p class="rise" style="--i:2" id="e8-svc" aria-live="polite"><strong>Application control:</strong> covered by our server monitoring and endpoint protection.</p>
+      <p class="fine rise" style="--i:3">Every service in your agreement shows which of the ACSC Essential Eight controls and which SMB1001 categories it meets, so you can see where you stand, and what an insurer or auditor will ask about.</p>
+    </div>
+  </section>
+
+  <section class="times wrap" id="response" aria-labelledby="times-h">
+    <div class="grid">
+      <h2 id="times-h" class="display rise">Response times,<br>in writing</h2>
+
+      <figure class="times-fig rise" style="--i:2">
+        <div class="ui" data-ui>
+          <div class="ui-bar"><span>North Mackay desk · this week</span><span id="week-now">Queensland time</span></div>
+          <div class="ui-body">
+            <svg viewBox="0 0 400 210" aria-hidden="true" id="week">
+              <g font-family="Archivo, sans-serif" font-size="12" fill="#5d6d7a">
+                <text x="0" y="30">Mon</text><text x="0" y="66">Tue</text><text x="0" y="102">Wed</text><text x="0" y="138">Thu</text><text x="0" y="174">Fri</text>
+                <text x="44" y="204">6am</text><text x="164" y="204">noon</text><text x="282" y="204">6pm</text>
+              </g>
+              <g fill="#e6f2f2"><rect x="44" y="16" width="348" height="20" rx="4"/><rect x="44" y="52" width="348" height="20" rx="4"/><rect x="44" y="88" width="348" height="20" rx="4"/><rect x="44" y="124" width="348" height="20" rx="4"/><rect x="44" y="160" width="348" height="20" rx="4"/></g>
+              <g fill="#17a2a2"><rect x="74" y="16" width="174" height="20" rx="4"/><rect x="74" y="52" width="174" height="20" rx="4"/><rect x="74" y="88" width="174" height="20" rx="4"/><rect x="74" y="124" width="174" height="20" rx="4"/><rect x="74" y="160" width="136" height="20" rx="4"/></g>
+              <line id="now-line" x1="0" x2="0" y1="8" y2="188" stroke="#b86a00" stroke-width="3" stroke-linecap="round" opacity="0"/>
+            </svg>
+            <div class="row"><span class="k">Outside these hours</span><span>After-hours support at extra cost</span></div>
+          </div>
+        </div>
+      </figure>
+
+      <div class="times-table rise" style="--i:1">
+        <table>
+          <caption>Response targets</caption>
+          <tbody>
+            <tr data-sev="1"><th scope="row">Critical</th><td>Server crash, internet outage, key system down</td><td class="v">1 hour</td></tr>
+            <tr data-sev="2"><th scope="row">Medium</th><td>A team or site can't work</td><td class="v">4 hours</td></tr>
+            <tr data-sev="3"><th scope="row">Low</th><td>One PC, printer or phone, with a workaround</td><td class="v">1–2 business days</td></tr>
+            <tr data-sev="4"><th scope="row">Minor</th><td>Advice, documentation, feature requests</td><td class="v">3–5 business days</td></tr>
+            <tr class="gap"><th scope="row">Desk hours</th><td>Monday to Thursday</td><td class="v">8 am–5 pm</td></tr>
+            <tr><th scope="row"></th><td>Friday</td><td class="v">8 am–3 pm</td></tr>
+            <tr class="gap"><th scope="row">Urgent</th><td>Call the support line</td><td class="v"><a class="link" href="tel:1800775800">1800 775 800</a></td></tr>
+            <tr><th scope="row">Everything else</th><td>Email opens a ticket automatically</td><td class="v"><a class="link" href="mailto:support@iscape.com.au">support@iscape.com.au</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq wrap" aria-labelledby="faq-h">
+    <div class="grid">
+      <h2 id="faq-h" class="display rise" style="grid-column: 1 / -1">Fair questions</h2>
+      <div class="faq-list">
+        <details class="rise">
+          <summary>Do we have to sign a long contract?<span class="chev" aria-hidden="true"></span></summary>
+          <p>No. Our managed IT agreements can run month to month. Everything we provide, with its price and the Essential Eight controls it covers, is set out in plain language before you sign.</p>
+        </details>
+        <details class="rise">
+          <summary>Where is our backup data kept?<span class="chev" aria-hidden="true"></span></summary>
+          <p>Offsite in Wasabi's Australian data centres, separate from your premises and encrypted in transit and at rest. We test-restore a sample every month and check backup integrity every quarter.</p>
+        </details>
+        <details class="rise">
+          <summary>Who's watching for attacks at 2 am?<span class="chev" aria-hidden="true"></span></summary>
+          <p>Huntress's security operations centre in Australia, 24 hours a day. When it confirms a threat we review the alert, coordinate containment and help with clean-up through our service desk.</p>
+        </details>
+        <details class="rise">
+          <summary>Will someone actually come onsite?<span class="chev" aria-hidden="true"></span></summary>
+          <p>Yes. Most issues are fixed remotely because it's faster, but our engineers work from North Mackay and Brisbane and come to you when the job needs hands on hardware.</p>
+        </details>
+        <details class="rise">
+          <summary>How is it priced?<span class="chev" aria-hidden="true"></span></summary>
+          <p>A fixed monthly price for what we look after (servers, devices, users and backup storage), with hourly rates for projects. After-hours work is charged at 1.5 times the normal rate and emergencies at twice. We quote after a look at your setup.</p>
+        </details>
+        <details class="rise">
+          <summary>Can you build software as well as fix computers?<span class="chev" aria-hidden="true"></span></summary>
+          <p>It's how iScape started in 2005. We write custom applications, reports and integrations in C#, .NET and SQL Server, including telemetry and GIS mapping systems.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact wrap" id="contact" aria-labelledby="contact-h">
+    <div class="grid">
+      <p class="say rise">New to iScape, after a second opinion on security, or need software written? Let's talk.</p>
+      <div class="contact-desk rise" style="--i:1">
+        <div class="ui" data-ui role="img" aria-label="Whether the North Mackay desk is open right now">
+          <span id="desk-day">Today</span>
+          <span class="big" id="desk-state">8–5</span>
+          <span id="desk-note">Mon–Thu 8–5, Fri 8–3</span>
+        </div>
+      </div>
+      <div class="contact-links rise" style="--i:2">
+        <h2 id="contact-h">Want a quote or a chat?</h2>
+        <a class="link" href="mailto:enquiry@iscape.com.au?subject=Enquiry%20from%20the%20website">enquiry@iscape.com.au</a>
+        <a class="link" href="tel:+61749775800">(07) 4977 5800</a>
+        <p>8 Evans Avenue, North Mackay QLD 4740</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="foot-top wrap">
+    <div class="grid">
+      <div class="foot-invite">
+        <h2 id="foot-h" class="display rise">Let's look at<br>your IT</h2>
+        <a class="btn rise" style="--i:1" href="mailto:enquiry@iscape.com.au?subject=Managed%20IT%20quote">Get a quote <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <div class="foot-links rise" style="--i:2">
+        <a class="link" href="tel:1800775800">1800 775 800</a>
+        <a class="link" href="mailto:support@iscape.com.au">support@iscape.com.au</a>
+        <a class="link" href="mailto:enquiry@iscape.com.au">enquiry@iscape.com.au</a>
+        <span>PO Box 3529, North Mackay QLD 4740</span>
+      </div>
+    </div>
+  </div>
+  <div class="foot-legal wrap">
+    <span>© 2026 iScape Pty Ltd</span>
+    <span>8 Evans Avenue, North Mackay QLD 4740 · (07) 4977 5800</span>
+  </div>
+  <div class="foot-name-wrap" aria-hidden="true"><div class="foot-name" id="foot-name">iScape</div></div>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ----- Mackay time and desk status (Queensland: AEST, no daylight saving) ----- */
+  const fmt = new Intl.DateTimeFormat('en-AU', { timeZone: 'Australia/Brisbane', weekday: 'short', hour: 'numeric', minute: '2-digit', hour12: true });
+  const parts = () => {
+    const p = new Intl.DateTimeFormat('en-AU', { timeZone: 'Australia/Brisbane', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date());
+    const get = (t) => p.find((x) => x.type === t)?.value;
+    const days = { Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 0 };
+    return { day: days[get('weekday')] ?? 1, h: (+get('hour')) % 24, m: +get('minute') };
+  };
+  const deskOpen = ({ day, h, m }) => {
+    const t = h + m / 60;
+    if (day >= 1 && day <= 4) return t >= 8 && t < 17;
+    if (day === 5) return t >= 8 && t < 15;
+    return false;
+  };
+  const timeStr = () => fmt.format(new Date()).replace(/\s?([ap]m)/i, (x, a) => ' ' + a.toLowerCase());
+
+  const nowEl = document.getElementById('slot-now');
+  const dotEl = document.getElementById('slot-dot');
+  const deskDay = document.getElementById('desk-day');
+  const deskState = document.getElementById('desk-state');
+  const deskNote = document.getElementById('desk-note');
+  const nowLine = document.getElementById('now-line');
+  const weekNow = document.getElementById('week-now');
+
+  function tick() {
+    const p = parts(); const open = deskOpen(p); const ts = timeStr();
+    nowEl.textContent = (open ? 'Desk open · ' : 'Desk closed · ') + ts + ' in Mackay';
+    dotEl.classList.toggle('closed', !open);
+    deskDay.textContent = ts + ' in Mackay';
+    deskState.textContent = open ? 'Open now' : 'Closed now';
+    deskNote.textContent = open ? 'Call (07) 4977 5800' : 'Urgent? 1800 775 800';
+    weekNow.textContent = ts;
+    if (p.day >= 1 && p.day <= 5) {
+      const t = p.h + p.m / 60; const x = 44 + Math.min(Math.max(t - 6, 0), 18) / 18 * 348;
+      const y = 16 + (p.day - 1) * 36;
+      nowLine.setAttribute('x1', x); nowLine.setAttribute('x2', x);
+      nowLine.setAttribute('y1', y - 6); nowLine.setAttribute('y2', y + 26);
+      nowLine.setAttribute('opacity', '1');
+    } else nowLine.setAttribute('opacity', '0');
+  }
+  tick(); setInterval(tick, 15000);
+
+  /* ----- the live thing: what's broken? → the written response target ----- */
+  const sev = {
+    1: { c: '<strong>A server is down?</strong> We respond', b: 'Within 1 hr' },
+    2: { c: '<strong>A team can’t work?</strong> We respond', b: 'Within 4 hrs' },
+    3: { c: '<strong>One PC or printer?</strong> We respond in', b: '1–2 days' },
+    4: { c: '<strong>Just a question?</strong> We respond in', b: '3–5 days' },
+  };
+  const slot = document.getElementById('slot');
+  const caseEl = document.getElementById('slot-case');
+  const bigEl = document.getElementById('slot-big');
+  const rows = document.querySelectorAll('.times-table tr[data-sev]');
+  document.querySelectorAll('.picker button').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('.picker button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    const s = sev[b.dataset.sev];
+    const apply = () => { caseEl.innerHTML = s.c; bigEl.textContent = s.b; slot.classList.remove('changing'); };
+    rows.forEach((r) => r.classList.toggle('on', r.dataset.sev === b.dataset.sev));
+    if (reduce) return apply();
+    slot.classList.add('changing'); setTimeout(apply, 220);
+  }));
+  rows[0]?.classList.add('on');
+
+  /* ----- Essential Eight: one control lit at a time ----- */
+  const e8 = [...document.querySelectorAll('#e8 span')];
+  const svc = document.getElementById('e8-svc');
+  let i = 0, timer;
+  const light = (n) => {
+    e8.forEach((s, k) => s.classList.toggle('lit', k === n));
+    const name = e8[n].textContent; svc.innerHTML = '<strong>' + name[0].toUpperCase() + name.slice(1) + ':</strong> ' + e8[n].dataset.svc.replace(/^Covered/, 'covered');
+  };
+  light(0);
+  const run = () => { timer = setInterval(() => { i = (i + 1) % e8.length; light(i); }, 2000); };
+  if (!reduce) run();
+  e8.forEach((s, k) => s.addEventListener('mouseenter', () => { clearInterval(timer); i = k; light(k); }));
+  document.getElementById('e8').addEventListener('mouseleave', () => { if (!reduce) run(); });
+
+  /* ----- the footer name fills the content box exactly ----- */
+  const fn = document.getElementById('foot-name');
+  const fit = () => {
+    fn.style.fontSize = '100px';
+    const w = fn.getBoundingClientRect().width, box = fn.parentElement.clientWidth - 2 * parseFloat(getComputedStyle(fn.parentElement).paddingLeft);
+    fn.style.fontSize = (100 * box / w).toFixed(2) + 'px';
+  };
+  document.fonts.ready.then(fit); addEventListener('resize', fit);
+
+  /* ----- entrances and the shutter ----- */
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rise').forEach((el) => io.observe(el));
+  requestAnimationFrame(() => setTimeout(() => slot.classList.add('open'), 250));
+})();
+</script>
+</body>
+</html>
