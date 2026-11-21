@@ -1,0 +1,282 @@
+{
+  "source": "Instagram reel by @hugomxnning (three screen recordings, 21 Nov 2026), URLs verified by web search the same day",
+  "fields": {
+    "verified": "true = URL confirmed from the site itself or several independent sources; false = best lead, confirm before relying on it",
+    "agent_access": "fastest way for Claude Code to pull from the resource without a browser",
+    "cost": "free | freemium | paid, with the gated part named"
+  },
+  "categories": [
+    {
+      "id": "components",
+      "name": "Components",
+      "stage": "build",
+      "resources": [
+        {
+          "name": "21st.dev",
+          "url": "https://21st.dev",
+          "verified": true,
+          "what": "Community registry of React + Tailwind (shadcn-style) components: heroes, shaders, backgrounds, pricing, testimonials, AI chat UIs, buttons, cards.",
+          "use_when": "Need a ready React/Tailwind block for a standard section and want many variants to choose from.",
+          "agent_access": "CLI: npx @21st-dev/cli add <@author/component>. Each component page also shows a shadcn install command and full TSX source.",
+          "stack": ["React", "Tailwind", "shadcn"],
+          "cost": "free"
+        },
+        {
+          "name": "Originkit",
+          "url": "https://www.originkit.dev",
+          "verified": true,
+          "what": "Free library of ~180 animated components (text, image gallery, cursor, background, buttons) plus ~48 page sections. Built for Framer first, with React/Next/Vite variants.",
+          "use_when": "Marketing or landing page needs eye-catching motion (galleries, cursor effects, WebGL backgrounds) without writing the animation yourself.",
+          "agent_access": "MCP server https://mcp.originkit.dev/mcp (tools: list_components, get_component with stack=nextjs|react|vite|framer, search, fetch). CLI: npx originkit@latest add <component-name>. Do NOT scrape the site: its robots.txt blocks ClaudeBot, so plain fetches return 403.",
+          "stack": ["Framer", "React", "Next.js", "Vite", "framer-motion"],
+          "cost": "free",
+          "cautions": "Heavy canvas/WebGL/cursor effects with little accessibility or reduced-motion handling. Keep them on marketing pages, never inside app shells or forms."
+        },
+        {
+          "name": "Spell UI",
+          "url": "https://spell.sh",
+          "verified": true,
+          "what": "Refined, subtle React + Tailwind components for design engineers (light rays, exploding input, perspective book, Spotify card, animated gradient).",
+          "use_when": "Need one or two restrained 'moments of delight' rather than a full component system.",
+          "agent_access": "shadcn registry hosted at spell.sh (install with the shadcn CLI; see spell.sh docs for the registry path). Also mirrored on 21st.dev: npx @21st-dev/cli add @spell.",
+          "stack": ["React", "Tailwind", "shadcn"],
+          "cost": "free",
+          "license": "MIT"
+        }
+      ]
+    },
+    {
+      "id": "animations",
+      "name": "Animations",
+      "note": "Category name inferred: the reel's heading was hidden behind the presenter.",
+      "stage": "motion",
+      "resources": [
+        {
+          "name": "Kawai Design: 100 Text Animations",
+          "url": "https://kawai-official.pages.dev",
+          "verified": false,
+          "what": "Grid of 100 text entrance/emphasis animations (fade, typewriter, shuffle, slide up, scale, blur, neon glow, bounce, 3D flip, jello, wave…) with live text preview and Copy Code buttons.",
+          "use_when": "Choosing a headline/hero text animation by sight, then copying the code into the project.",
+          "agent_access": "Browser only: copy the snippet from the card. URL comes from a third-party write-up; confirm it.",
+          "stack": ["CSS", "JS"],
+          "cost": "free"
+        },
+        {
+          "name": "Kinetics (Colorion)",
+          "url": "https://kinetics.colorion.co",
+          "verified": true,
+          "what": "160+ spring-physics interface animations (buttons, switches, accordions, counters, likes, steppers) with CSS snippets, ~99 React examples and ~150 AI prompts. Includes a CSS spring easing guide and generator.",
+          "use_when": "A micro-interaction should feel springy or physical and you don't want to add Motion/GSAP. Most entries are pure CSS with cubic-bezier(0.34, 1.56, 0.64, 1)-style easing.",
+          "agent_access": "Each effect page shows the CSS, React and AI prompt. Guide: https://kinetics.colorion.co/guides/css-spring-animation/. Sister site with 123 CSS text effects: https://text-effects.colorion.co",
+          "stack": ["CSS", "React"],
+          "cost": "free",
+          "cautions": "The source repo is reported to have no LICENSE file. Confirm with the user before shipping its code in a commercial product."
+        },
+        {
+          "name": "Animation Dictionary",
+          "url": null,
+          "verified": false,
+          "what": "Searchable library of web effects (Aurora Mesh, Split Text Reveal, Tilt Card 3D…) filtered by trigger (plays on its own / hover / click / scroll) and type (entrance & exit, attention, hover, loading, text, backgrounds, morphing, 3D & space, page transitions), with CSS / HTML / AI tabs.",
+          "use_when": "Looking up an effect by name or by what triggers it.",
+          "agent_access": "URL not found. Ask the user for the link. Until then, https://www.whatthefrontend.com/effects/ is a similar named-effects dictionary with AI prompts.",
+          "stack": ["CSS", "HTML", "JS"],
+          "cost": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "fonts",
+      "name": "Fonts",
+      "stage": "finish",
+      "resources": [
+        {
+          "name": "Fontshare",
+          "url": "https://www.fontshare.com",
+          "verified": true,
+          "what": "Free quality fonts from Indian Type Foundry (Satoshi, Clash Display, General Sans, Cabinet Grotesk…), with a free CSS embed API.",
+          "use_when": "Want a distinctive free typeface that isn't the usual Google Fonts default.",
+          "agent_access": "CSS embed: https://api.fontshare.com/v2/css?f[]=<font-slug>@<weights>&display=swap (e.g. f[]=satoshi@400,700). The artifact viewer CSP only allows fonts.googleapis.com, so self-host or use Google Fonts there.",
+          "cost": "free",
+          "license": "ITF Free Font License (free for personal and commercial use)"
+        },
+        {
+          "name": "Fonts In Use",
+          "url": "https://fontsinuse.com",
+          "verified": true,
+          "what": "Independent archive of typography in real-world use, searchable by typeface, format and topic.",
+          "use_when": "Need pairing ideas or proof that a typeface works in a given industry or tone.",
+          "agent_access": "Browser/reference only.",
+          "cost": "free"
+        },
+        {
+          "name": "Fontesk",
+          "url": "https://fontesk.com",
+          "verified": true,
+          "what": "Free font downloads by category (sans, serif, slab, display, script, handwritten) with featured, popular and daily-gift picks.",
+          "use_when": "Hunting a display or novelty face for a headline.",
+          "agent_access": "Download files manually and self-host. Check each font's licence because they vary.",
+          "cost": "free",
+          "cautions": "Licences vary per font (some personal use only)."
+        }
+      ]
+    },
+    {
+      "id": "3d-scroll",
+      "name": "3D and scroll",
+      "stage": "motion",
+      "resources": [
+        {
+          "name": "Scrolltide",
+          "url": "https://www.scrolltide.co",
+          "verified": true,
+          "what": "Curated library of ~150 scroll-driven website templates, sections, components and GPU shaders, each delivered as a prompt engineered for Claude/Cursor/v0 that outputs Next.js with Framer Motion/GSAP/Three.js/Lenis.",
+          "use_when": "Want a cinematic scroll-driven hero or landing page that doesn't look AI-made.",
+          "agent_access": "Copy the prompt from the site and paste it into Claude Code. Free set: https://www.scrolltide.co/free",
+          "stack": ["Next.js", "React", "Tailwind", "GSAP", "Three.js", "Lenis"],
+          "cost": "freemium (8 free templates; paid lifetime access for the full library)"
+        },
+        {
+          "name": "GetLayers",
+          "url": "https://www.getlayers.ai",
+          "verified": true,
+          "what": "'Cinematic AI sites, made easy': prompts for immersive website templates, real-time 3D scenes, interactive sections, animated backgrounds and WebGL gradients.",
+          "use_when": "Need a 3D scene, shader field or immersive full-site prompt.",
+          "agent_access": "Copy prompt, paste into Claude Code. Free set available without a card.",
+          "stack": ["WebGL", "Three.js", "React"],
+          "cost": "freemium (curated free layers; premium prompts need a subscription)"
+        },
+        {
+          "name": "MotionSites",
+          "url": "https://motionsites.ai",
+          "verified": true,
+          "what": "'Unlock your AI design superpowers': prompt library for landing pages, hero/feature/pricing/footer sections and animated backgrounds.",
+          "use_when": "Need a fast, styled landing page or a single section via a prompt.",
+          "agent_access": "Copy prompt, paste into Claude Code.",
+          "cost": "freemium",
+          "cautions": "Look-alike domains exist (motionsites.org, mirror sites on vercel.app). Use motionsites.ai."
+        }
+      ]
+    },
+    {
+      "id": "colors",
+      "name": "Colors",
+      "stage": "finish",
+      "resources": [
+        {
+          "name": "Pinterest",
+          "url": "https://www.pinterest.com",
+          "verified": true,
+          "what": "Moodboards. Search e.g. 'blue website design' and filter by colour chips.",
+          "use_when": "Gathering visual direction or a palette from images before choosing exact values.",
+          "agent_access": "Browser/reference only. Ask the user for boards or screenshots.",
+          "cost": "free"
+        },
+        {
+          "name": "Coolors",
+          "url": "https://coolors.co",
+          "verified": true,
+          "what": "Fast colour palette generator plus 10M+ community palettes, contrast checker and gradient tools.",
+          "use_when": "Turning a vibe into a concrete 5-colour palette with hex values.",
+          "agent_access": "Palette URLs carry the hex codes, e.g. https://coolors.co/264653-2a9d8f-e9c46a-f4a261-e76f51, so Claude can read or write palettes as URLs.",
+          "cost": "freemium"
+        }
+      ]
+    },
+    {
+      "id": "sections",
+      "name": "Section and layout inspiration",
+      "note": "Category name inferred: the reel's heading was hidden behind the presenter.",
+      "stage": "plan",
+      "resources": [
+        {
+          "name": "Unsection",
+          "url": "https://www.unsection.com",
+          "verified": true,
+          "what": "Section-first inspiration: 5,600+ real website sections browsable by type (hero, testimonials, feature, CTA, footer, blog, navbar, pricing, logo, FAQ, team, contact), industry and style.",
+          "use_when": "Designing one specific section and want real-world references for it, not whole sites.",
+          "agent_access": "Browser/reference only.",
+          "cost": "free"
+        },
+        {
+          "name": "Details.so",
+          "url": "https://www.details.so",
+          "verified": true,
+          "what": "'The details behind the world's best websites': 3,500+ hand-tagged references (heroes, footers, scroll animations, page and section transitions, preloaders). Inspo (free browse), Vault (paste-ready code) and an MCP server.",
+          "use_when": "Need references for a specific interaction or transition, ideally pulled straight into Claude Code.",
+          "agent_access": "MCP (paid plans): claude mcp add details --scope user --transport http https://api.details.so/mcp, then authenticate via /mcp.",
+          "cost": "freemium (Vault and MCP need a paid plan)"
+        }
+      ]
+    },
+    {
+      "id": "backgrounds",
+      "name": "Backgrounds",
+      "stage": "finish",
+      "resources": [
+        {
+          "name": "Backgrounds Supply",
+          "url": "https://backgrounds.supply",
+          "verified": true,
+          "what": "~2,000 handcrafted gradient, AI-art and animated MP4 backgrounds across 50+ collections. 200+ free picks at /freebies.",
+          "use_when": "Need a high-quality hero or section backdrop image or looping video.",
+          "agent_access": "Download manually (free ones need an email sign-in), then add to the project's assets.",
+          "cost": "freemium (free picks; one-time purchase for the full library)",
+          "license": "Free picks usable commercially, no attribution required"
+        },
+        {
+          "name": "Gradient Lab",
+          "url": "https://backgrounds.supply/gradient-lab",
+          "verified": true,
+          "what": "Free in-browser animated gradient generator from Backgrounds Supply: 20+ live shader modes, exports PNG/JPG/MP4/WebM or embed code.",
+          "use_when": "Want a custom animated gradient background in brand colours.",
+          "agent_access": "Browser tool. Export the file or embed code and hand it to Claude Code.",
+          "cost": "free (up to 1920x1080, no sign-up, no watermark; 4K is Pro)"
+        },
+        {
+          "name": "Super Visuals",
+          "url": "https://www.figma.com/community/file/1626392980707308918/super-visuals-50-stunning-backgrounds-v2",
+          "verified": false,
+          "what": "'Visual Backgrounds Library' of 50+ abstract, 3D and photographic backgrounds (BG 001 Pastel Cloud Island, Midnight Blue Ribbons…), distributed as a Figma community file.",
+          "use_when": "Need a striking abstract or 3D background and can export from Figma.",
+          "agent_access": "Export from Figma manually. URL matched by name; confirm it's the same library shown in the reel.",
+          "cost": "free",
+          "license": "CC BY 4.0: attribution required"
+        }
+      ]
+    },
+    {
+      "id": "inspiration",
+      "name": "General inspiration",
+      "stage": "plan",
+      "resources": [
+        {
+          "name": "Pinterest",
+          "url": "https://www.pinterest.com",
+          "verified": true,
+          "what": "Moodboards for overall direction.",
+          "use_when": "Very start of a project, before anything is decided.",
+          "agent_access": "Browser/reference only.",
+          "cost": "free"
+        },
+        {
+          "name": "Awwwards",
+          "url": "https://www.awwwards.com",
+          "verified": true,
+          "what": "Award-winning website showcase (Site of the Day, collections, by category and technology).",
+          "use_when": "Setting a quality bar or finding ambitious, high-end references.",
+          "agent_access": "Browser/reference only.",
+          "cost": "free"
+        },
+        {
+          "name": "Curated",
+          "url": "https://curated.design",
+          "verified": true,
+          "what": "~2,900 real, live websites filed by industry (AI, SaaS, e-commerce, finance, portfolio…) and style. Can assemble real sections into a page brief for a coding agent.",
+          "use_when": "Need references from a specific industry.",
+          "agent_access": "Browser. Industry pages at https://curated.design/inspiration/<industry>/",
+          "cost": "freemium (advanced filters with Pro)"
+        }
+      ]
+    }
+  ]
+}
