@@ -1,5 +1,5 @@
 /* iScape landing page. Direction: "The sentence is the layout" (taste-skill seed 142575392).
-   Type: Instrument Sans (stand-in for the dealt General Sans). Palette: cool grey, cobalt. */
+   Type: Instrument Sans (stand-in for the dealt General Sans). Palette: iScape teal and charcoal (brand colours, mapped onto the dealt palette roles). */
 
 @font-face {
   font-family: 'Instrument Sans';
@@ -10,27 +10,29 @@
 }
 
 :root {
-  --bg: #eef0f3;
-  --surface: #e2e5ea;
-  --ink: #0b0c0e;
-  --muted: #5d6470;
-  --accent: #1f2de6;
-  --accent-strong: #141da0;
+  /* iScape corporate colours (iScapeLogoStyleSheet.pdf): Pantone 320 #009CA6, Pantone Process Black #2C2A29.
+     White text on #009CA6 is 3.3:1, so text-bearing teal uses the deeper #0C7C8A (4.9:1). */
+  --bg: #eff3f3;
+  --surface: #e1e8e8;
+  --ink: #2c2a29;
+  --muted: #5e6666;
+  --accent: #0c7c8a;
+  --accent-strong: #065a64;
   --accent-ink: #ffffff;
-  --field-1: #1f2de6;
+  --field-1: #0c7c8a;
   --field-1-ink: #ffffff;
 
-  /* drawing tones: the palette's cobalt and greys in flat steps */
-  --d-deep: #141da0;
-  --d-cobalt: #1f2de6;
-  --d-light: #4f5aef;
-  --d-pale2: #a9b0f5;
-  --d-pale: #d4d8fb;
-  --d-river: #c3c8f7;
-  --d-grey1: #e2e5ea;
-  --d-grey2: #cfd3da;
-  --d-grey3: #b3b9c4;
-  --d-grey4: #8c94a3;
+  /* drawing tones: the brand teal and warm greys in flat steps */
+  --d-deep: #065a64;
+  --d-teal: #009ca6;
+  --d-light: #4dbdc3;
+  --d-pale2: #9ad8db;
+  --d-pale: #cdeced;
+  --d-river: #b5e2e4;
+  --d-grey1: #e4e7e7;
+  --d-grey2: #cfd4d4;
+  --d-grey3: #b3baba;
+  --d-grey4: #8a9292;
 
   --font: 'Instrument Sans', system-ui, sans-serif;
 
@@ -140,7 +142,7 @@ p { max-width: 62ch; text-wrap: pretty; }
 .s1 { grid-column: 1 / 13; } .s2 { grid-column: 3 / 13; } .s3 { grid-column: 5 / 13; } .s4 { grid-column: 7 / 13; }
 .accent-line { color: var(--accent); }
 
-/* ---------- check: the live thing, on the cobalt field ---------- */
+/* ---------- check: the live thing, on the teal field ---------- */
 .check { background: var(--field-1); color: var(--field-1-ink); padding-block: clamp(6rem, 10vw, 10rem); }
 .check ::selection { background: #fff; color: var(--accent); }
 .check :focus-visible { outline-color: #fff; }
@@ -158,7 +160,7 @@ p { max-width: 62ch; text-wrap: pretty; }
 .q-opts input:checked + span { background: #fff; color: var(--accent); }
 .q-opts input:focus-visible + span { outline: 2px solid #fff; outline-offset: 3px; }
 .q-opts label:active span { transform: scale(0.96); }
-@media (hover: hover) and (pointer: fine) { .q-opts input:not(:checked):hover + span { background: #0e1578; } }
+@media (hover: hover) and (pointer: fine) { .q-opts input:not(:checked):hover + span { background: #044a52; } }
 .verdict-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; margin-top: 2.5rem; }
 .verdict { font-weight: 700; max-width: 22ch; }
 
@@ -170,7 +172,7 @@ p { max-width: 62ch; text-wrap: pretty; }
 .reach-title { display: contents; }
 .reach-a { grid-column: 1 / 4; grid-row: 1; align-self: end; padding-bottom: 0.18em; white-space: nowrap; }
 .reach-b { grid-column: 1 / 4; grid-row: 3; align-self: start; position: relative; z-index: 2; padding-top: 0.1em; white-space: nowrap; transition: opacity 600ms var(--ease-out), transform 700ms var(--ease-expo); }
-.reach-frame { grid-column: 2; grid-row: 2; width: 30vw; aspect-ratio: 4 / 5; overflow: hidden; background: var(--d-cobalt); }
+.reach-frame { grid-column: 2; grid-row: 2; width: 30vw; aspect-ratio: 4 / 5; overflow: hidden; background: var(--d-teal); }
 .map { width: 100%; height: 100%; transform-origin: 75% 52%; transition: transform 700ms var(--ease-in-out); }
 .streets { transition: opacity 500ms var(--ease-out); }
 .js .reach:not([data-at="3"]) .streets { opacity: 0; }
@@ -208,7 +210,7 @@ p { max-width: 62ch; text-wrap: pretty; }
 .contact { position: relative; min-height: 72svh; background: var(--ink); color: var(--bg); padding: var(--margin); display: grid; grid-template-rows: auto 1fr auto auto; }
 .contact-lead { font-weight: 500; max-width: 26ch; }
 .contact-mail { grid-row: 3; align-self: end; display: block; font-size: var(--step-display); font-weight: 500; letter-spacing: -0.04em; text-decoration: none; margin-bottom: 8vh; overflow-wrap: anywhere; transition: color var(--t-hover) ease; }
-@media (hover: hover) and (pointer: fine) { .contact-mail:hover { color: #7f88f5; } }
+@media (hover: hover) and (pointer: fine) { .contact-mail:hover { color: #4dbdc3; } }
 .contact-foot { grid-row: 4; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
 /* ---------- footer: invitation over a cropped name ---------- */
@@ -235,7 +237,7 @@ p { max-width: 62ch; text-wrap: pretty; }
   .hero-support { position: static; display: block; margin-top: 1.25rem; padding: 0; font-size: var(--step-body); text-align: center; }
   .hero-support span { display: block; }
   .hero-support span:first-child { text-align: center; }
-  .hero-band { display: flex; position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; height: 96px; padding: 0 var(--margin); align-items: center; background: rgba(238, 240, 243, 0.92); }
+  .hero-band { display: flex; position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; height: 96px; padding: 0 var(--margin); align-items: center; background: rgba(239, 243, 243, 0.92); }
   .hero-band .button { width: 100%; }
 
   .intro { padding-block: 6rem; justify-content: flex-start; }

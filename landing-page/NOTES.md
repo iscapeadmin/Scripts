@@ -120,3 +120,11 @@ Remaining:
 - Showcase zoom: 2× and 7.5× instead of 1.8× and 3.2×, so the third distance reaches street level.
 - Footer on the surface tone rather than inverse, so it doesn't merge with the dark contact section.
 - Contact keeps 72svh on desktop instead of 100svh (a full screen left a blank band).
+
+## Brand colours (2026-11-24)
+Palette swapped from the dealt cool grey and cobalt to iScape's corporate colours, from
+iScapeLogoStyleSheet.pdf (SharePoint: iScape.Admin/Logos & Graphics): Pantone 320 teal #009CA6 and
+Pantone Process Black #2C2A29. White text on #009CA6 is only 3.3:1, so buttons and the check
+section use the deeper teal #0C7C8A (4.9:1, also used in other iScape documents) with #065A64 for
+hover. #009CA6 carries the drawings, map sea and large colour areas. Ink is the brand charcoal.
+Gate after the change: lint 0/0; inspector unchanged (1 FAIL few-pictures, as before).
