@@ -12,14 +12,14 @@ aimed at local small and medium businesses. One action: book an IT review.
 6. The coast: the Pioneer River mouth, Whitsunday islands to the north.
 7. Cyclone season, 1 November to 30 April: power and NBN outages, closed offices, scam emails after storms.
 8. Rural sites on Starlink or 4G, because the NBN doesn't reach every shed.
-9. Today is 22 October: ten days to the start of the season.
+9. Built on 22 October, ten days before the season; the season has since started (1 November), so the copy is written to work during the season too.
 
 ## Argument (one claim per section, with its proof)
 - hero: iScape is Mackay's IT, ready before cyclone season → the district drawn large, the storm in the headline.
 - intro: Mackay runs on cane, coal and the coast; iScape keeps the offices behind them working → three inline pictures.
 - features: what's looked after: helpdesk, backups, security, connections → four rows with drawings.
 - how-it-works: how you start, in four plain steps → the staircase.
-- check (live): you can find out right now whether you're ready for 1 November → five questions, the answer, the button.
+- check (live): you can find out right now whether you're ready for the next cyclone → five questions, the answer, the button.
 - showcase: local, from the Basin to Evans Avenue → one map at three distances.
 - about: who iScape is and since when → the paragraph with the cane loco as a drop cap.
 - faq: the real objections answered → six questions.
@@ -40,7 +40,7 @@ starts), five yes/no questions about the office, a verdict that updates, and "Bo
 with the answers as an email. Plain form without script.
 
 ## Copy deck
-Nav: iScape · Services · Cyclone check · About · FAQ · [Book a review]
+Nav: [iScape logo] · Services · Cyclone check · About · FAQ · [Book a review]
 
 H1: Mackay IT, ready / for [cyclone] season
 Support (split on the horizon): "Managed IT for Mackay businesses since 2005" | "helpdesk, backups, security and connections, looked after from North Mackay."
@@ -59,7 +59,7 @@ How it works (staircase, the first line is the heading):
 - We fix the urgent things. Usually backups, multi-factor sign-in and the tired router, in the first fortnight.
 - Then it's ours to watch. Monitoring, updates and the helpdesk from then on, for a fixed monthly fee.
 
-Check H2: Ready by 1 November?
+Check H2: Ready for the next cyclone?
 Countdown line: "10 days until cyclone season" / "Cyclone season: day N of 181"
 Questions:
 1. Are your backups copied somewhere outside Mackay?
@@ -67,7 +67,8 @@ Questions:
 3. Are the server, modem and phones on a UPS?
 4. Is there a mobile backup if the NBN drops?
 5. Does everyone sign in with multi-factor authentication?
-Verdict by count: 5 "Ready. We'd still test the restore." / 3-4 "Close. N things to fix before the first watch." / 0-2 "Not yet. Let's fix it before November."
+Intro: "Five questions we ask every office before a cyclone watch is issued. ..."
+Verdict by count: 5 "Ready. We'd still test the restore." / 3-4 "Close: N things to fix before the next watch." / 0-2 "Not yet. Let's fix it before the next one."
 Button: Book a review (mailto with answers)
 
 Showcase H2 halves: "From the Basin" / "to Evans Avenue"
@@ -77,7 +78,7 @@ About (p, drop cap: drawn cane loco): iScape was started in Mackay in 2005 by Pe
 
 FAQ H2: Questions we get asked (six)
 Contact: hello@iscape.com.au (SAMPLE, confirm), sentence: "Tell us about the office, the shed, or the one computer that keeps beeping."
-Footer: "Get ready / before November" + Book a review; links; cropped "iScape".
+Footer: "Be ready for / the next one" + Book a review; links; cropped "iScape" (the logo's own letterforms).
 
 ## Sample content to confirm before launch
 Email address, street address, founders and merger history, service area, the 4-step onboarding,
@@ -128,3 +129,26 @@ Pantone Process Black #2C2A29. White text on #009CA6 is only 3.3:1, so buttons a
 section use the deeper teal #0C7C8A (4.9:1, also used in other iScape documents) with #065A64 for
 hover. #009CA6 carries the drawings, map sea and large colour areas. Ink is the brand charcoal.
 Gate after the change: lint 0/0; inspector unchanged (1 FAIL few-pictures, as before).
+
+## In-season wording, real logo (2026-11-24, second session)
+- Wording: cyclone season started on 1 November, so the pre-season lines were reworded to read
+  correctly at any time of year. Check H2 "Ready by 1 November?" became "Ready for the next cyclone?";
+  footer "Get ready before November" became "Be ready for the next one"; the verdicts say "before the
+  next watch" and "before the next one". The countdown in script.js already switches to "Cyclone season:
+  day N of 181" in season. Below 1100px the check now stacks heading over questions (as on phones), so
+  the longer heading stays at two lines at 768px.
+- Logo: the user chose "iScape Logo - Transparent High Res.png" (1943x577) from SharePoint iScape.Admin /
+  Logos & Graphics / New Logos. The folder has no SVG (vector masters are .ai/.eps only), so the PNG was
+  traced (potrace, each colour separately at 2x) into SVG paths. The full lockup with "IT Specialists" is
+  saved as assets/iscape-logo.svg. The page carries an inline sprite with two symbols: #logo-word ("iScape",
+  teal i) and #logo-mark (the power-button i). The nav shows both without the tagline (it would be about
+  7px tall at nav size); the footer's cropped name is now #logo-word at full grid width, cropped through
+  the p's descender. Ink follows currentColor and the teal is --logo-i (default --d-teal #009CA6).
+  Replace the traced paths with an SVG exported from the .ai master when one is available.
+- Pictures: the open collections were still blocked by this cloud session's network policy (proxy 403).
+  The user agreed to accept the few-pictures FAIL for now as a known exception.
+- Gate: lint 0 FAIL / 0 WARN. Inspector: 1 FAIL (few-pictures, agreed exception) and 2 WARN (no-footage,
+  pinned-over-picture); the WARNs were already present on main before this change.
+- Still to confirm before launch: everything under "Sample content to confirm" above, including the
+  placeholder hello@iscape.com.au (the user chose to leave it for now; public listings give
+  enquiry@iscape.com.au and +61 7 4977 5800).

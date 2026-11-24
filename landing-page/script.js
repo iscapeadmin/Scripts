@@ -75,9 +75,9 @@ requestAnimationFrame(() => requestAnimationFrame(() => document.querySelector('
     } else if (gaps === 0) {
       verdict.textContent = "Ready. We'd still test the restore.";
     } else if (gaps <= 2) {
-      verdict.textContent = `Close: ${gaps} ${gaps === 1 ? 'thing' : 'things'} to fix before the first watch.`;
+      verdict.textContent = `Close: ${gaps} ${gaps === 1 ? 'thing' : 'things'} to fix before the next watch.`;
     } else {
-      verdict.textContent = "Not yet. Let's fix it before November.";
+      verdict.textContent = "Not yet. Let's fix it before the next one.";
     }
     const body = ['Our answers to the cyclone season check:', '', ...answers.map((a) => `${a.text} ${a.value ? a.value.toUpperCase() : '(not answered)'}`), '', 'Business name:', 'Best number to call:'].join('\n');
     send.href = `mailto:hello@iscape.com.au?subject=${encodeURIComponent('Cyclone season review')}&body=${encodeURIComponent(body)}`;
