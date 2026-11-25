@@ -1,0 +1,30 @@
+{
+  "_comment": "End-of-support dates checked against vendor lifecycle pages as of Nov 2026. First match wins, so specific entries come before general ones. Check dates here before acting on them; edit this file as vendors publish new dates. 'match' is a case-insensitive regex tested against the device OS string.",
+  "products": [
+    {"product": "Windows 7", "match": "windows 7\\b", "eol": "2020-01-14", "kind_effort": {"workstation": 3}, "action": "Replace or rebuild on Windows 11"},
+    {"product": "Windows 8.1", "match": "windows 8(\\.1)?\\b", "eol": "2023-01-10", "kind_effort": {"workstation": 3}, "action": "Replace or rebuild on Windows 11"},
+    {"product": "Windows 10 Enterprise LTSC 2019", "match": "windows 10.*ltsc.*2019|windows 10.*(ltsc|ltsb).*17763", "eol": "2029-01-09", "kind_effort": {"workstation": 2}, "action": "Plan an LTSC upgrade"},
+    {"product": "Windows 10 Enterprise LTSC 2021", "match": "windows 10.*ltsc.*2021|windows 10.*ltsc.*19044", "eol": "2027-01-12", "kind_effort": {"workstation": 2}, "action": "Plan an LTSC upgrade"},
+    {"product": "Windows 10", "match": "windows 10(?!.*ltsc)", "eol": "2025-10-14", "kind_effort": {"workstation": 2}, "action": "Upgrade in place to Windows 11 where the hardware supports it, otherwise replace. Confirm whether the client has paid for Extended Security Updates."},
+    {"product": "Windows 11 21H2 (Enterprise/Education)", "match": "windows 11.*(enterprise|education).*(21h2|22000)", "eol": "2024-10-08", "kind_effort": {"workstation": 1}, "action": "Push the current Windows 11 feature update"},
+    {"product": "Windows 11 21H2", "match": "windows 11.*(21h2|22000)", "eol": "2023-10-10", "kind_effort": {"workstation": 1}, "action": "Push the current Windows 11 feature update"},
+    {"product": "Windows 11 22H2 (Enterprise/Education)", "match": "windows 11.*(enterprise|education).*(22h2|22621)", "eol": "2025-10-14", "kind_effort": {"workstation": 1}, "action": "Push the current Windows 11 feature update"},
+    {"product": "Windows 11 22H2", "match": "windows 11.*(22h2|22621)", "eol": "2024-10-08", "kind_effort": {"workstation": 1}, "action": "Push the current Windows 11 feature update"},
+    {"product": "Windows 11 23H2 (Enterprise/Education)", "match": "windows 11.*(enterprise|education).*(23h2|22631)", "eol": "2026-11-10", "kind_effort": {"workstation": 1}, "action": "Push the current Windows 11 feature update"},
+    {"product": "Windows 11 23H2", "match": "windows 11.*(23h2|22631)", "eol": "2025-11-11", "kind_effort": {"workstation": 1}, "action": "Push the current Windows 11 feature update"},
+    {"product": "Windows 11 24H2 (Enterprise/Education)", "match": "windows 11.*(enterprise|education).*(24h2|26100)", "eol": "2027-10-12", "kind_effort": {"workstation": 1}, "action": "Push the current Windows 11 feature update"},
+    {"product": "Windows 11 24H2", "match": "windows 11.*(24h2|26100)", "eol": "2026-10-13", "kind_effort": {"workstation": 1}, "action": "Push the current Windows 11 feature update"},
+    {"product": "Windows Server 2008 / 2008 R2", "match": "server 2008", "eol": "2020-01-14", "kind_effort": {"server": 16}, "action": "Migrate workloads to a supported server or the cloud, then decommission"},
+    {"product": "Windows Server 2012 / 2012 R2", "match": "server 2012", "eol": "2023-10-10", "kind_effort": {"server": 16}, "action": "Migrate workloads to a supported server or the cloud, then decommission. Confirm whether ESUs (via Azure Arc) are in place."},
+    {"product": "Windows Server 2016", "match": "server 2016", "eol": "2027-01-12", "kind_effort": {"server": 16}, "action": "Plan the migration to Windows Server 2025 or to the cloud. Quote it this quarter."},
+    {"product": "Windows Server 2019", "match": "server 2019", "eol": "2029-01-09", "kind_effort": {"server": 16}, "action": "Add to the lifecycle roadmap"},
+    {"product": "SQL Server 2014", "match": "sql server 2014", "eol": "2024-07-09", "kind_effort": {"server": 8}, "action": "Upgrade SQL Server and check the line-of-business vendor supports the new version"},
+    {"product": "SQL Server 2016", "match": "sql server 2016", "eol": "2026-07-14", "kind_effort": {"server": 8}, "action": "Upgrade SQL Server and check the line-of-business vendor supports the new version"},
+    {"product": "SQL Server 2017", "match": "sql server 2017", "eol": "2027-10-12", "kind_effort": {"server": 8}, "action": "Plan the SQL Server upgrade with the line-of-business vendor"},
+    {"product": "Exchange Server 2016 / 2019", "match": "exchange (server )?(2016|2019)", "eol": "2025-10-14", "kind_effort": {"server": 24}, "action": "Move the mailboxes to Exchange Online or Exchange SE"},
+    {"product": "Office 2016 / 2019", "match": "office (2016|2019)", "eol": "2025-10-14", "kind_effort": {"workstation": 0.5}, "action": "Move to Microsoft 365 Apps"},
+    {"product": "Office 2021 / LTSC 2021", "match": "office (ltsc )?2021", "eol": "2026-10-13", "kind_effort": {"workstation": 0.5}, "action": "Move to Microsoft 365 Apps"},
+    {"product": "Ubuntu 20.04 LTS", "match": "ubuntu 20\\.04", "eol": "2025-05-31", "kind_effort": {"server": 4}, "action": "Upgrade to a supported LTS or enrol in Ubuntu Pro"},
+    {"product": "Ubuntu 22.04 LTS", "match": "ubuntu 22\\.04", "eol": "2027-06-01", "kind_effort": {"server": 4}, "action": "Plan the LTS upgrade"}
+  ]
+}

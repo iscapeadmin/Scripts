@@ -1,0 +1,61 @@
+# Copy to config.toml (git-ignored) and fill in. Secrets are NEVER stored here:
+# each source names the environment variable that holds its key.
+
+[hudu]
+base_url = "https://YOUR-INSTANCE.huducloud.com"
+api_key_env = "HUDU_API_KEY"            # Hudu > Admin > API Keys (read-only is enough)
+# Layouts whose assets count as devices (defaults match iScape's current Hudu):
+# device_layouts = ["Assets", "Computer Assets", "Desktops", "Laptops", "Virtual Servers", "Hyper-V Hosts",
+#                   "Firewalls", "Switches", "Network Devices", "Wireless", "NAS", "UPS", "ILO", "Ninja Assets"]
+# Extra field labels to read, if a layout uses different names:
+# [hudu.fields]
+# warranty_expiry = ["Warranty Expiry", "Warranty End Date"]
+# purchase_date   = ["Purchase Date"]
+
+[halo]
+base_url = "https://YOUR-INSTANCE.halopsa.com"
+# auth_url = "https://YOUR-INSTANCE.halopsa.com/auth"   # default is base_url + /auth
+# tenant = "yourtenant"                                 # only for hosted tenants that need it
+client_id = "YOUR-API-APPLICATION-CLIENT-ID"
+client_secret_env = "HALO_CLIENT_SECRET"
+ticket_lookback_days = 180
+include_assets = false
+# --- only needed for --push-halo ---
+work_idea_tickettype_id = 0        # create a "Proactive Work Idea" ticket type and put its id here
+# work_idea_category = "Proactive"
+# priority_ids = { P1 = 1, P2 = 2, P3 = 3, P4 = 4 }
+
+[domotz]
+base_url = "https://api-us-east-1-cell-1.domotz.com/public-api/v1"   # your region's endpoint from the Domotz portal
+api_key_env = "DOMOTZ_API_KEY"
+
+[ai]
+enabled = false            # or pass --ai
+model = "claude-opus-5-5"
+effort = "high"
+max_ideas = 8
+redact = true              # strip IPs, MACs and user names before sending ticket text to Claude
+
+[rules]
+# disabled = ["documentation.stale_articles"]
+# eol_warn_days = 180
+# warranty_warn_days = 90
+# credential_max_age_days = 365
+# ticket_window_days = 90
+# theme_min_tickets = 4
+# max_age_years = { workstation = 5, server = 6 }
+# Add your own ticket themes (e.g. a line-of-business app):
+# [rules.ticket_themes."Dental imaging software"]
+# keywords = ["sidexis", "romexis", "imaging", "x-ray"]
+# suggestion = "Engage the vendor on a health check, confirm the supported versions, and document the restart/recovery procedure."
+
+# One section per client. The name is what appears on reports.
+[clients."Harbourside Dental Group"]
+hudu_company_id = 123
+halo_client_id = 45
+# halo_site_id = 67
+domotz_agent_ids = [89012]
+
+# A client can also be run from a saved/exported snapshot file:
+# [clients."Demo"]
+# snapshot_file = "sample_data/demo_client.json"

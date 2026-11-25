@@ -1,0 +1,1064 @@
+{
+ "name": "Harbourside Dental Group (DEMO)",
+ "as_of": "2026-11-21",
+ "sources": [
+  "hudu",
+  "halo",
+  "domotz"
+ ],
+ "devices": [
+  {
+   "name": "HSD-DC01",
+   "kind": "server",
+   "os": "Microsoft Windows Server 2016 Standard",
+   "manufacturer": "Dell",
+   "model": "PowerEdge T330",
+   "serial": "7XK2Q42",
+   "purchase_date": "2018-03-12",
+   "warranty_expiry": "2023-03-12",
+   "documented": true,
+   "monitored": true,
+   "online": true,
+   "ip": "10.20.0.10",
+   "sources": [
+    "hudu",
+    "domotz"
+   ]
+  },
+  {
+   "name": "HSD-HV01",
+   "kind": "server",
+   "os": "Microsoft Windows Server 2019 Datacenter",
+   "manufacturer": "Dell",
+   "model": "PowerEdge R740",
+   "serial": "9PL3M71",
+   "purchase_date": "2020-06-02",
+   "warranty_expiry": "2026-12-30",
+   "documented": true,
+   "monitored": true,
+   "online": true,
+   "ip": "10.20.0.5",
+   "sources": [
+    "hudu",
+    "domotz"
+   ]
+  },
+  {
+   "name": "HSD-APP01",
+   "kind": "server",
+   "os": "Microsoft Windows Server 2012 R2 Standard",
+   "manufacturer": "",
+   "model": "Hyper-V VM",
+   "documented": true,
+   "monitored": true,
+   "online": true,
+   "ip": "10.20.0.12",
+   "sources": [
+    "hudu",
+    "domotz"
+   ]
+  },
+  {
+   "name": "HSD-FW01",
+   "kind": "firewall",
+   "manufacturer": "Fortinet",
+   "model": "FortiGate 60F",
+   "serial": "FGT60FTK21000123",
+   "firmware": "7.2.8",
+   "support_renewal": "2026-12-15",
+   "warranty_expiry": "2027-03-01",
+   "documented": true,
+   "monitored": true,
+   "online": true,
+   "ip": "10.20.0.1",
+   "sources": [
+    "hudu",
+    "domotz"
+   ]
+  },
+  {
+   "name": "HSD-SW01",
+   "kind": "network",
+   "manufacturer": "Aruba",
+   "model": "2930F-24G",
+   "serial": "CN12KXZ0AA",
+   "firmware": "WC.16.11.0016",
+   "documented": true,
+   "monitored": true,
+   "online": true,
+   "ip": "10.20.0.2",
+   "sources": [
+    "hudu",
+    "domotz"
+   ]
+  },
+  {
+   "name": "HSD-SW02",
+   "kind": "network",
+   "manufacturer": "Aruba",
+   "model": "2930F-24G",
+   "firmware": "WC.16.10.0012",
+   "monitored": true,
+   "online": true,
+   "ip": "10.20.0.3",
+   "mac": "b8:d4:e7:11:22:33",
+   "sources": [
+    "domotz"
+   ]
+  },
+  {
+   "name": "AP-Reception",
+   "kind": "network",
+   "manufacturer": "Ubiquiti",
+   "model": "U6-Pro",
+   "firmware": "6.6.77",
+   "monitored": true,
+   "online": true,
+   "ip": "10.20.0.31",
+   "sources": [
+    "domotz"
+   ]
+  },
+  {
+   "name": "AP-Surgery",
+   "kind": "network",
+   "manufacturer": "Ubiquiti",
+   "model": "U6-Pro",
+   "firmware": "6.6.77",
+   "monitored": true,
+   "online": true,
+   "ip": "10.20.0.32",
+   "sources": [
+    "domotz"
+   ]
+  },
+  {
+   "name": "AP-Staffroom",
+   "kind": "network",
+   "manufacturer": "Ubiquiti",
+   "model": "U6-Pro",
+   "firmware": "6.5.62",
+   "monitored": true,
+   "online": true,
+   "ip": "10.20.0.33",
+   "sources": [
+    "domotz"
+   ]
+  },
+  {
+   "name": "HSD-NAS01",
+   "kind": "storage",
+   "manufacturer": "Synology",
+   "model": "DS918+",
+   "serial": "1890PDN123456",
+   "purchase_date": "2018-09-20",
+   "warranty_expiry": "2021-09-20",
+   "documented": true,
+   "monitored": true,
+   "online": false,
+   "last_seen": "2026-11-18",
+   "ip": "10.20.0.20",
+   "sources": [
+    "hudu",
+    "domotz"
+   ]
+  },
+  {
+   "name": "PRN-Reception",
+   "kind": "printer",
+   "manufacturer": "Brother",
+   "model": "MFC-L8900CDW",
+   "monitored": true,
+   "online": true,
+   "ip": "10.20.0.50",
+   "sources": [
+    "domotz"
+   ]
+  },
+  {
+   "name": "iPhone-front-desk",
+   "kind": "other",
+   "manufacturer": "Apple",
+   "model": "iPhone",
+   "monitored": true,
+   "online": false,
+   "last_seen": "2026-09-30",
+   "sources": [
+    "domotz"
+   ]
+  },
+  {
+   "name": "Galaxy-Tab-01",
+   "kind": "other",
+   "manufacturer": "Samsung",
+   "model": "Galaxy Tab A8",
+   "monitored": true,
+   "online": false,
+   "last_seen": "2026-10-02",
+   "sources": [
+    "domotz"
+   ]
+  },
+  {
+   "name": "HSD-LT-RECEP-01",
+   "kind": "workstation",
+   "os": "Microsoft Windows 10 Pro 22H2",
+   "manufacturer": "Lenovo",
+   "model": "ThinkPad T14",
+   "purchase_date": "2020-02-02",
+   "warranty_expiry": "2023-02-01",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN514002"
+  },
+  {
+   "name": "HSD-LT-SURG-02",
+   "kind": "workstation",
+   "os": "Microsoft Windows 10 Pro 22H2",
+   "manufacturer": "HP",
+   "model": "Latitude 5420",
+   "purchase_date": "2019-03-03",
+   "warranty_expiry": "2022-03-02",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN175954"
+  },
+  {
+   "name": "HSD-PC-SURG-03",
+   "kind": "workstation",
+   "os": "Microsoft Windows 10 Pro 22H2",
+   "manufacturer": "HP",
+   "model": "Latitude 5420",
+   "purchase_date": "2020-04-04",
+   "warranty_expiry": "2023-04-04",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN483452"
+  },
+  {
+   "name": "HSD-LT-SURG-04",
+   "kind": "workstation",
+   "os": "Microsoft Windows 10 Pro 22H2",
+   "manufacturer": "HP",
+   "model": "Latitude 5420",
+   "purchase_date": "2019-05-05",
+   "warranty_expiry": "2022-05-04",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN632084"
+  },
+  {
+   "name": "HSD-LT-ACC-05",
+   "kind": "workstation",
+   "os": "Microsoft Windows 10 Pro 22H2",
+   "manufacturer": "Dell",
+   "model": "Latitude 5420",
+   "purchase_date": "2020-06-06",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": ""
+  },
+  {
+   "name": "HSD-PC-ACC-06",
+   "kind": "workstation",
+   "os": "Microsoft Windows 10 Pro 22H2",
+   "manufacturer": "Dell",
+   "model": "OptiPlex 7090",
+   "purchase_date": "2019-07-07",
+   "warranty_expiry": "2022-07-06",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN538485"
+  },
+  {
+   "name": "HSD-LT-MGR-07",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 23H2 (22631)",
+   "manufacturer": "Dell",
+   "model": "ThinkPad T14",
+   "purchase_date": "2020-08-08",
+   "warranty_expiry": "2023-08-08",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN195119"
+  },
+  {
+   "name": "HSD-LT-HYG-08",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 23H2 (22631)",
+   "manufacturer": "HP",
+   "model": "OptiPlex 7090",
+   "purchase_date": "2021-09-09",
+   "warranty_expiry": "2024-09-08",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN161981"
+  },
+  {
+   "name": "HSD-PC-HYG-09",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 23H2 (22631)",
+   "manufacturer": "HP",
+   "model": "Latitude 5420",
+   "purchase_date": "2022-10-10",
+   "warranty_expiry": "2025-10-09",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN334083"
+  },
+  {
+   "name": "HSD-LT-STER-10",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 23H2 (22631)",
+   "manufacturer": "HP",
+   "model": "Latitude 5420",
+   "purchase_date": "2023-11-11",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": ""
+  },
+  {
+   "name": "HSD-LT-RECEP-11",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 24H2 (26100)",
+   "manufacturer": "HP",
+   "model": "OptiPlex 7090",
+   "purchase_date": "2024-12-12",
+   "warranty_expiry": "2027-12-12",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN151998"
+  },
+  {
+   "name": "HSD-PC-SURG-12",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 24H2 (26100)",
+   "manufacturer": "Dell",
+   "model": "Latitude 5420",
+   "purchase_date": "2019-01-13",
+   "warranty_expiry": "2022-01-12",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN683705"
+  },
+  {
+   "name": "HSD-LT-HYG-13",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 24H2 (26100)",
+   "manufacturer": "Dell",
+   "model": "EliteBook 840 G8",
+   "purchase_date": "2020-02-14",
+   "warranty_expiry": "2023-02-13",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN539499"
+  },
+  {
+   "name": "HSD-LT-ACC-14",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 24H2 (26100)",
+   "manufacturer": "Dell",
+   "model": "Latitude 5420",
+   "purchase_date": "2021-03-15",
+   "warranty_expiry": "2024-03-14",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN698646"
+  },
+  {
+   "name": "HSD-PC-MGR-15",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 24H2 (26100)",
+   "manufacturer": "Lenovo",
+   "model": "ThinkPad T14",
+   "purchase_date": "2022-04-16",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": ""
+  },
+  {
+   "name": "HSD-LT-SURG-16",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 25H2 (26200)",
+   "manufacturer": "Dell",
+   "model": "ThinkPad T14",
+   "purchase_date": "2023-05-17",
+   "warranty_expiry": "2026-05-16",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN490487"
+  },
+  {
+   "name": "HSD-LT-HYG-17",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 25H2 (26200)",
+   "manufacturer": "Dell",
+   "model": "Latitude 5420",
+   "purchase_date": "2024-06-18",
+   "warranty_expiry": "2027-06-18",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN691783"
+  },
+  {
+   "name": "HSD-PC-RECEP-18",
+   "kind": "workstation",
+   "os": "Microsoft Windows 11 Pro 25H2 (26200)",
+   "manufacturer": "Dell",
+   "model": "ThinkPad T14",
+   "purchase_date": "2019-07-19",
+   "warranty_expiry": "2022-07-18",
+   "documented": true,
+   "monitored": false,
+   "sources": [
+    "hudu"
+   ],
+   "serial": "SN620528"
+  }
+ ],
+ "tickets": [
+  {
+   "id": "18247",
+   "summary": "Scan to email not working on Brother MFC",
+   "created": "2026-11-15",
+   "closed": "2026-11-15",
+   "status": "Closed",
+   "category": "Printing",
+   "user": "Sarah Nguyen",
+   "device": "PRN-Reception",
+   "hours": 1.0
+  },
+  {
+   "id": "18306",
+   "summary": "Password reset - locked out",
+   "created": "2026-11-13",
+   "closed": "2026-11-15",
+   "status": "Closed",
+   "category": "Accounts",
+   "user": "Liam O'Connor",
+   "device": "",
+   "hours": 0.25
+  },
+  {
+   "id": "18270",
+   "summary": "VPN disconnecting when working from home",
+   "created": "2026-11-12",
+   "closed": "2026-11-14",
+   "status": "Closed",
+   "category": "Remote Access",
+   "user": "Tom Bennett",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18226",
+   "summary": "Printer at reception not printing",
+   "created": "2026-11-10",
+   "closed": "2026-11-13",
+   "status": "Closed",
+   "category": "Printing",
+   "user": "Grace Park",
+   "device": "PRN-Reception",
+   "hours": 0.75
+  },
+  {
+   "id": "18317",
+   "summary": "Password reset - locked out",
+   "created": "2026-11-10",
+   "closed": "2026-11-13",
+   "status": "Closed",
+   "category": "Accounts",
+   "user": "Priya Shah",
+   "device": "",
+   "hours": 0.25
+  },
+  {
+   "id": "18340",
+   "summary": "PC very slow in the morning",
+   "created": "2026-11-10",
+   "closed": "2026-11-11",
+   "status": "Closed",
+   "category": "Performance",
+   "user": "Sarah Nguyen",
+   "device": "HSD-LT-ACC-05",
+   "hours": 1.0
+  },
+  {
+   "id": "18404",
+   "summary": "Wifi dropping in surgery 2",
+   "created": "2026-11-08",
+   "closed": "2026-11-08",
+   "status": "Closed",
+   "category": "Network",
+   "user": "Dr Michael Chen",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18385",
+   "summary": "Outlook keeps asking for password",
+   "created": "2026-11-07",
+   "closed": "2026-11-10",
+   "status": "Closed",
+   "category": "Email",
+   "user": "Jack Taylor",
+   "device": "",
+   "hours": 0.5
+  },
+  {
+   "id": "18395",
+   "summary": "Wifi dropping in surgery 2",
+   "created": "2026-11-07",
+   "closed": "2026-11-08",
+   "status": "Closed",
+   "category": "Network",
+   "user": "Sarah Nguyen",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18424",
+   "summary": "Dental imaging software won't open",
+   "created": "2026-11-07",
+   "closed": "2026-11-09",
+   "status": "Closed",
+   "category": "LOB App",
+   "user": "Dr Michael Chen",
+   "device": "",
+   "hours": 1.5
+  },
+  {
+   "id": "18413",
+   "summary": "New starter - hygienist",
+   "created": "2026-11-06",
+   "closed": "2026-11-09",
+   "status": "Closed",
+   "category": "Onboarding",
+   "user": "Jack Taylor",
+   "device": "",
+   "hours": 2.0
+  },
+  {
+   "id": "18234",
+   "summary": "Printer at reception not printing",
+   "created": "2026-11-05",
+   "closed": "2026-11-06",
+   "status": "Closed",
+   "category": "Printing",
+   "user": "Emma Wilson",
+   "device": "",
+   "hours": 0.75
+  },
+  {
+   "id": "18369",
+   "summary": "Outlook keeps asking for password",
+   "created": "2026-11-04",
+   "closed": "2026-11-07",
+   "status": "Closed",
+   "category": "Email",
+   "user": "Sarah Nguyen",
+   "device": "",
+   "hours": 0.5
+  },
+  {
+   "id": "18240",
+   "summary": "Printer at reception not printing",
+   "created": "2026-11-01",
+   "closed": "2026-11-04",
+   "status": "Closed",
+   "category": "Printing",
+   "user": "Sarah Nguyen",
+   "device": "",
+   "hours": 0.75
+  },
+  {
+   "id": "18394",
+   "summary": "Wifi dropping in surgery 2",
+   "created": "2026-10-31",
+   "closed": "2026-11-02",
+   "status": "Closed",
+   "category": "Network",
+   "user": "Tom Bennett",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18432",
+   "summary": "Dental imaging software won't open",
+   "created": "2026-10-31",
+   "closed": "2026-11-01",
+   "status": "Closed",
+   "category": "LOB App",
+   "user": "Sarah Nguyen",
+   "device": "",
+   "hours": 1.5
+  },
+  {
+   "id": "18386",
+   "summary": "Outlook keeps asking for password",
+   "created": "2026-10-27",
+   "closed": "2026-10-28",
+   "status": "Closed",
+   "category": "Email",
+   "user": "Tom Bennett",
+   "device": "",
+   "hours": 0.5
+  },
+  {
+   "id": "18406",
+   "summary": "Wifi dropping in surgery 2",
+   "created": "2026-10-25",
+   "closed": "2026-10-26",
+   "status": "Closed",
+   "category": "Network",
+   "user": "Emma Wilson",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18343",
+   "summary": "PC very slow in the morning",
+   "created": "2026-10-22",
+   "closed": "2026-10-22",
+   "status": "Closed",
+   "category": "Performance",
+   "user": "Liam O'Connor",
+   "device": "HSD-LT-ACC-05",
+   "hours": 1.0
+  },
+  {
+   "id": "18222",
+   "summary": "Printer at reception not printing",
+   "created": "2026-10-20",
+   "closed": "2026-10-21",
+   "status": "Closed",
+   "category": "Printing",
+   "user": "Sarah Nguyen",
+   "device": "PRN-Reception",
+   "hours": 0.75
+  },
+  {
+   "id": "18309",
+   "summary": "Password reset - locked out",
+   "created": "2026-10-20",
+   "closed": "2026-10-23",
+   "status": "Closed",
+   "category": "Accounts",
+   "user": "Emma Wilson",
+   "device": "",
+   "hours": 0.25
+  },
+  {
+   "id": "18356",
+   "summary": "PC very slow in the morning",
+   "created": "2026-10-15",
+   "closed": "2026-10-16",
+   "status": "Closed",
+   "category": "Performance",
+   "user": "Sarah Nguyen",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18450",
+   "summary": "Teams call audio choppy",
+   "created": "2026-10-13",
+   "closed": "2026-10-15",
+   "status": "Closed",
+   "category": "Telephony",
+   "user": "Tom Bennett",
+   "device": "",
+   "hours": 0.5
+  },
+  {
+   "id": "18411",
+   "summary": "Wifi dropping in surgery 2",
+   "created": "2026-10-07",
+   "closed": "2026-10-10",
+   "status": "Closed",
+   "category": "Network",
+   "user": "Dr Michael Chen",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18465",
+   "summary": "Intermittent BSOD on HSD-PC-SURG-03",
+   "created": "2026-10-07",
+   "status": "In Progress",
+   "category": "Request",
+   "user": "Emma Wilson",
+   "hours": 1.0
+  },
+  {
+   "id": "18298",
+   "summary": "VPN disconnecting when working from home",
+   "created": "2026-10-06",
+   "closed": "2026-10-06",
+   "status": "Closed",
+   "category": "Remote Access",
+   "user": "Priya Shah",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18441",
+   "summary": "Dental imaging software won't open",
+   "created": "2026-10-05",
+   "closed": "2026-10-05",
+   "status": "Closed",
+   "category": "LOB App",
+   "user": "Priya Shah",
+   "device": "",
+   "hours": 1.5
+  },
+  {
+   "id": "18459",
+   "summary": "Teams call audio choppy",
+   "created": "2026-10-05",
+   "closed": "2026-10-07",
+   "status": "Closed",
+   "category": "Telephony",
+   "user": "Priya Shah",
+   "device": "",
+   "hours": 0.5
+  },
+  {
+   "id": "18378",
+   "summary": "Outlook keeps asking for password",
+   "created": "2026-10-01",
+   "closed": "2026-10-04",
+   "status": "Closed",
+   "category": "Email",
+   "user": "Emma Wilson",
+   "device": "",
+   "hours": 0.5
+  },
+  {
+   "id": "18209",
+   "summary": "Printer at reception not printing",
+   "created": "2026-09-27",
+   "closed": "2026-09-29",
+   "status": "Closed",
+   "category": "Printing",
+   "user": "Sarah Nguyen",
+   "device": "PRN-Reception",
+   "hours": 0.75
+  },
+  {
+   "id": "18232",
+   "summary": "Printer at reception not printing",
+   "created": "2026-09-24",
+   "closed": "2026-09-26",
+   "status": "Closed",
+   "category": "Printing",
+   "user": "Sarah Nguyen",
+   "device": "",
+   "hours": 0.75
+  },
+  {
+   "id": "18421",
+   "summary": "New starter - hygienist",
+   "created": "2026-09-20",
+   "closed": "2026-09-20",
+   "status": "Closed",
+   "category": "Onboarding",
+   "user": "Grace Park",
+   "device": "",
+   "hours": 2.0
+  },
+  {
+   "id": "18462",
+   "summary": "Quote for second monitor - Dr Chen",
+   "created": "2026-09-18",
+   "status": "In Progress",
+   "category": "Request",
+   "user": "Emma Wilson",
+   "hours": 1.0
+  },
+  {
+   "id": "18363",
+   "summary": "PC very slow in the morning",
+   "created": "2026-09-13",
+   "closed": "2026-09-15",
+   "status": "Closed",
+   "category": "Performance",
+   "user": "Sarah Nguyen",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18324",
+   "summary": "Password reset - locked out",
+   "created": "2026-09-11",
+   "closed": "2026-09-12",
+   "status": "Closed",
+   "category": "Accounts",
+   "user": "Grace Park",
+   "device": "",
+   "hours": 0.25
+  },
+  {
+   "id": "18331",
+   "summary": "Password reset - locked out",
+   "created": "2026-09-11",
+   "closed": "2026-09-14",
+   "status": "Closed",
+   "category": "Accounts",
+   "user": "Grace Park",
+   "device": "",
+   "hours": 0.25
+  },
+  {
+   "id": "18256",
+   "summary": "Scan to email not working on Brother MFC",
+   "created": "2026-09-08",
+   "closed": "2026-09-10",
+   "status": "Closed",
+   "category": "Printing",
+   "user": "Dr Michael Chen",
+   "device": "PRN-Reception",
+   "hours": 1.0
+  },
+  {
+   "id": "18217",
+   "summary": "Printer at reception not printing",
+   "created": "2026-09-07",
+   "closed": "2026-09-09",
+   "status": "Closed",
+   "category": "Printing",
+   "user": "Jack Taylor",
+   "device": "PRN-Reception",
+   "hours": 0.75
+  },
+  {
+   "id": "18351",
+   "summary": "PC very slow in the morning",
+   "created": "2026-09-06",
+   "closed": "2026-09-07",
+   "status": "Closed",
+   "category": "Performance",
+   "user": "Sarah Nguyen",
+   "device": "HSD-LT-ACC-05",
+   "hours": 1.0
+  },
+  {
+   "id": "18262",
+   "summary": "Scan to email not working on Brother MFC",
+   "created": "2026-09-05",
+   "closed": "2026-09-08",
+   "status": "Closed",
+   "category": "Printing",
+   "user": "Sarah Nguyen",
+   "device": "PRN-Reception",
+   "hours": 1.0
+  },
+  {
+   "id": "18283",
+   "summary": "VPN disconnecting when working from home",
+   "created": "2026-08-30",
+   "closed": "2026-09-01",
+   "status": "Closed",
+   "category": "Remote Access",
+   "user": "Jack Taylor",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18278",
+   "summary": "VPN disconnecting when working from home",
+   "created": "2026-08-27",
+   "closed": "2026-08-27",
+   "status": "Closed",
+   "category": "Remote Access",
+   "user": "Tom Bennett",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18290",
+   "summary": "VPN disconnecting when working from home",
+   "created": "2026-08-27",
+   "closed": "2026-08-27",
+   "status": "Closed",
+   "category": "Remote Access",
+   "user": "Dr Michael Chen",
+   "device": "",
+   "hours": 1.0
+  },
+  {
+   "id": "18337",
+   "summary": "Password reset - locked out",
+   "created": "2026-08-25",
+   "closed": "2026-08-26",
+   "status": "Closed",
+   "category": "Accounts",
+   "user": "Emma Wilson",
+   "device": "",
+   "hours": 0.25
+  },
+  {
+   "id": "18468",
+   "summary": "Migrate practice software DB to new server - scoping",
+   "created": "2026-08-01",
+   "status": "In Progress",
+   "category": "Request",
+   "user": "Emma Wilson",
+   "hours": 1.0
+  }
+ ],
+ "expirations": [
+  {
+   "name": "remote.harbourside-demo.com.au",
+   "kind": "ssl",
+   "expires": "2026-12-05"
+  },
+  {
+   "name": "portal.harbourside-demo.com.au",
+   "kind": "ssl",
+   "expires": "2026-11-15"
+  },
+  {
+   "name": "harbourside-demo.com.au",
+   "kind": "domain",
+   "expires": "2027-01-10"
+  },
+  {
+   "name": "harbourside-demo.au",
+   "kind": "domain",
+   "expires": "2027-08-01"
+  }
+ ],
+ "credentials": [
+  {
+   "name": "Domain Administrator",
+   "updated": "2023-05-01",
+   "kind": "Active Directory"
+  },
+  {
+   "name": "FortiGate admin",
+   "updated": "2024-02-01",
+   "kind": "Firewall"
+  },
+  {
+   "name": "Wi-Fi PSK - Staff",
+   "updated": "2022-08-01",
+   "kind": "Wireless"
+  },
+  {
+   "name": "M365 Global Admin (break glass)",
+   "updated": "2026-03-01",
+   "kind": "Microsoft 365"
+  },
+  {
+   "name": "Synology NAS admin",
+   "updated": "2021-09-09",
+   "kind": "Storage"
+  },
+  {
+   "name": "svc-backup",
+   "updated": "2022-02-14",
+   "kind": "Service account"
+  },
+  {
+   "name": "Practice software vendor portal",
+   "updated": "2026-01-20",
+   "kind": "Web"
+  }
+ ],
+ "articles": [
+  {
+   "title": "New starter checklist",
+   "updated": "2026-06-01"
+  },
+  {
+   "title": "Printer setup",
+   "updated": "2022-03-14"
+  },
+  {
+   "title": "VPN client install",
+   "updated": "2023-01-09"
+  },
+  {
+   "title": "Imaging software restart procedure",
+   "updated": "2024-02-02"
+  },
+  {
+   "title": "Backup restore procedure",
+   "updated": "2022-11-30"
+  },
+  {
+   "title": "After hours contacts",
+   "updated": "2026-09-12"
+  },
+  {
+   "title": "Wi-Fi details",
+   "updated": "2025-12-01"
+  },
+  {
+   "title": "Server reboot order",
+   "updated": "2021-07-19"
+  }
+ ],
+ "asset_layouts_present": [
+  "Computer Assets",
+  "Contacts",
+  "Firewalls",
+  "Hyper-V Hosts",
+  "NAS",
+  "Sites",
+  "Switches",
+  "Virtual Servers"
+ ]
+}
